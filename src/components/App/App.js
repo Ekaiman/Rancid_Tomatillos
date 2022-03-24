@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       movies: [],
       selectedMovie: [],
-      movieClicked: false
+      movieClicked: false,
+      error: ''
     };
   }
 
@@ -27,8 +28,16 @@ class App extends Component {
   };
 
   componentDidMount() {
-    
-    apiCalls.fetchData().then(data => this.setState({ movies: data.movies }));
+    apiCalls
+      .fetchData()
+      .then(data => this.setState({ movies: data.movies }))
+      .catch(error => {
+        if (error.status >= 500) {
+          this.setState({
+            error: 'Sorry our team is working on resolving this issue'
+          });
+        }
+      });
   }
 
   render() {
@@ -46,6 +55,7 @@ class App extends Component {
             displayOneMovie={this.displayOneMovie}
           />
         )}
+        {this.state.error && <h1>{this.state.error}</h1>}
       </div>
     );
   }
