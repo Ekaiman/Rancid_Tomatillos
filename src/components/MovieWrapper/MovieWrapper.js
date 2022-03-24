@@ -1,7 +1,7 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js'
 
-function MovieWrapper({ movies }) {
+function MovieWrapper({ movies, displayOneMovie }) {
   return movies.map(movie => {
     const {
       average_rating: rating,
@@ -20,6 +20,7 @@ function MovieWrapper({ movies }) {
         releaseDate={releaseDate}
         title={title}
         key={id}
+        displayOneMovie={displayOneMovie}
       />
     );
   });
