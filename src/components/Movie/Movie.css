@@ -1,0 +1,9 @@
+.movie {
+  height: 300px;
+  width: 300px;
+  border: solid yellow;
+}
+
+.poster-image {
+  max-height: 50%;
+}
