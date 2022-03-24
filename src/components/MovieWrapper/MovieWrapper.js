@@ -1,5 +1,5 @@
 import React from 'react';
-import Movie from '../Movie/Movie.js'
+import Movie from '../Movie/Movie.js';
 
 function MovieWrapper({ movies, displayOneMovie }) {
   return movies.map(movie => {
