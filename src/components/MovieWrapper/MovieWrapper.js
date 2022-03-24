@@ -1,4 +1,5 @@
 import React from 'react';
+import Movie from '../Movie/Movie.js'
 
 function MovieWrapper({ movies }) {
   return movies.map(movie => {
@@ -18,6 +19,7 @@ function MovieWrapper({ movies }) {
         posterPath={posterPath}
         releaseDate={releaseDate}
         title={title}
+        key={id}
       />
     );
   });
