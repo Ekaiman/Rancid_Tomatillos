@@ -1,7 +1,5 @@
-// import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
-import movieData from '../../movieData';
 import MovieWrapper from '../MovieWrapper/MovieWrapper.js';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
