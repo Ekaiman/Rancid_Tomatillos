@@ -1,7 +1,7 @@
 // import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
-import movieData from '../../movieData';
+// import movieData from '../../movieData';
 import MovieWrapper from '../MovieWrapper/MovieWrapper.js';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
@@ -42,7 +42,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div className='main-background'>
         {this.state.movieClicked && (
           <MovieDetail
             movie={this.state.selectedMovie}
