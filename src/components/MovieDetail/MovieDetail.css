@@ -52,6 +52,10 @@
   text-shadow: #000000 6px 5px 6px;
 }
 
+.overview {
+  font-size: 12px;
+}
+
 .view-all-movies-button {
   margin: 30px;
   display: inline-block;
