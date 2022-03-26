@@ -17,10 +17,17 @@ class App extends Component {
     };
   }
 
+  // displayOneMovie = id => {
+  //   console.log('clicked', id);
+  //   const foundMovie = this.state.movies.find(movie => movie.id === id);
+  //   this.setState({ selectedMovie: foundMovie, movieClicked: true });
+  // };
   displayOneMovie = id => {
-    console.log('clicked', id);
-    const foundMovie = this.state.movies.find(movie => movie.id === id);
-    this.setState({ selectedMovie: foundMovie, movieClicked: true });
+    apiCalls
+      .fetchOneMovie(id)
+      .then(data =>
+        this.setState({ selectedMovie: data.movie, movieClicked: true })
+      );
   };
 
   returnToMain = () => {
