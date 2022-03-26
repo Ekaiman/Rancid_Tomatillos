@@ -24,7 +24,6 @@
   margin: 15px 40px;
   z-index: 1;
   text-shadow: 10;
-  border: solid green;
 }
 
 .gradient {
@@ -44,7 +43,13 @@
   width: 100%;
   font-size: 30px;
   margin-left: 25px;
-  text-shadow: #000000 20px 0 35px;
+  text-shadow: #000000 6px 5px 6px;
+}
+
+.release-date,
+.rating {
+  font-size: 17px;
+  text-shadow: #000000 6px 5px 6px;git stta
 }
 
 .view-all-movies-button {

@@ -21,9 +21,9 @@ function MovieDetail({ movie, returnToMain }) {
           <img className='poster' src={movie.poster_path} />
           <div className='text-wrapper'>
             <h1>{movie.title}</h1>
+          <h2 className='release-date'>Released: {movie.release_date}</h2>
+          <h2 className='rating'>Average rating: {movie.average_rating}</h2>
           </div>
-          <h2>{movie.release_date}</h2>
-          <h2>{movie.average_rating}</h2>
         </section>
       </div>
     </div>
