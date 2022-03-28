@@ -10,24 +10,31 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: [],
+      selectedMovie: null,
+      selectedMovieId: null,
       movieClicked: false,
       error: null
     };
   }
 
-  // displayOneMovie = id => {
-  //   console.log('clicked', id);
-  //   const foundMovie = this.state.movies.find(movie => movie.id === id);
-  //   this.setState({ selectedMovie: foundMovie, movieClicked: true });
-  // };
   displayOneMovie = id => {
-    apiCalls
-      .fetchOneMovie(id)
-      .then(data =>
-        this.setState({ selectedMovie: data.movie, movieClicked: true })
-      );
+    console.log('clicked id', id);
+    this.setState({ movieClicked: true, selectedMovieId: id })
+    // const foundMovie = this.state.movies.find(movie => movie.id === id);
+    // this.setState({ selectedMovie: foundMovie, movieClicked: true });
   };
+
+  // displayOneMovie = id => {
+  //   apiCalls
+  //     .fetchOneMovie(id)
+  //     .then(data =>
+  //       this.setState({ selectedMovie: data.movie, movieClicked: true })
+  //     )
+  //     .catch(error => {
+  //       console.log('caught err for single movie')
+  //       this.setState({ error: 'Sorry our team is working on resolving this issue' })
+  //     })
+  // };
 
   returnToMain = () => {
     this.setState({ movieClicked: false });
@@ -38,14 +45,9 @@ class App extends Component {
       .fetchData()
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => {
-        // console.log(error.response)
-        if (error) {
-        // if (error.status >= 500) {
-          this.setState({
-            error: 'Sorry our team is working on resolving this issue'
-          });
-        }
-      });
+        console.log('caught err for ALL MOVIES')
+        this.setState({ error: 'Sorry our team is working on resolving this issue' })
+      })
   }
 
   render() {
@@ -53,7 +55,7 @@ class App extends Component {
       <div className='main-background'>
         {this.state.movieClicked && (
           <MovieDetail
-            movie={this.state.selectedMovie}
+            movieId={this.state.selectedMovieId}
             returnToMain={this.returnToMain}
           />
         )}
