@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import MovieWrapper from '../MovieWrapper/MovieWrapper.js';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 class App extends Component {
   constructor() {
@@ -11,7 +12,7 @@ class App extends Component {
       movies: [],
       selectedMovie: [],
       movieClicked: false,
-      error: ''
+      error: null
     };
   }
 
@@ -30,7 +31,9 @@ class App extends Component {
       .fetchData()
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => {
-        if (error.status >= 500) {
+        // console.log(error.response)
+        if (error) {
+        // if (error.status >= 500) {
           this.setState({
             error: 'Sorry our team is working on resolving this issue'
           });
@@ -53,7 +56,11 @@ class App extends Component {
             displayOneMovie={this.displayOneMovie}
           />
         )}
-        {this.state.error && <h1>{this.state.error}</h1>}
+        {this.state.error && (
+          <ErrorHandling
+            error={this.state.error}
+          />
+        )}
       </div>
     );
   }
