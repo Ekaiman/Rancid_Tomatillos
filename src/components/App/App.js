@@ -1,33 +1,25 @@
-// import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
-// import movieData from '../../movieData';
 import MovieWrapper from '../MovieWrapper/MovieWrapper.js';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       movies: [],
-      selectedMovie: [],
+      selectedMovie: null,
+      selectedMovieId: null,
       movieClicked: false,
-      error: ''
+      error: null
     };
   }
 
-  // displayOneMovie = id => {
-  //   console.log('clicked', id);
-  //   const foundMovie = this.state.movies.find(movie => movie.id === id);
-  //   this.setState({ selectedMovie: foundMovie, movieClicked: true });
-  // };
   displayOneMovie = id => {
-    apiCalls
-      .fetchOneMovie(id)
-      .then(data =>
-        this.setState({ selectedMovie: data.movie, movieClicked: true })
-      );
+    console.log('clicked id', id);
+    this.setState({ movieClicked: true, selectedMovieId: id })
   };
 
   returnToMain = () => {
@@ -39,12 +31,9 @@ class App extends Component {
       .fetchData()
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => {
-        if (error.status >= 500) {
-          this.setState({
-            error: 'Sorry our team is working on resolving this issue'
-          });
-        }
-      });
+        console.log('caught err for ALL MOVIES')
+        this.setState({ error: 'Sorry our team is working on resolving this issue' })
+      })
   }
 
   render() {
@@ -52,7 +41,7 @@ class App extends Component {
       <div className='main-background'>
         {this.state.movieClicked && (
           <MovieDetail
-            movie={this.state.selectedMovie}
+            movieId={this.state.selectedMovieId}
             returnToMain={this.returnToMain}
           />
         )}
@@ -62,7 +51,11 @@ class App extends Component {
             displayOneMovie={this.displayOneMovie}
           />
         )}
-        {this.state.error && <h1>{this.state.error}</h1>}
+        {this.state.error && (
+          <ErrorHandling
+            error={this.state.error}
+          />
+        )}
       </div>
     );
   }
