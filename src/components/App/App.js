@@ -4,6 +4,7 @@ import MovieWrapper from '../MovieWrapper/MovieWrapper.js';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
+import { Route, NavLink } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -23,7 +24,7 @@ class App extends Component {
   };
 
   returnToMain = () => {
-    this.setState({ movieClicked: false });
+    // this.setState({ movieClicked: false });
   };
 
   componentDidMount() {
@@ -39,26 +40,63 @@ class App extends Component {
   render() {
     return (
       <div className='main-background'>
-        {this.state.movieClicked && (
-          <MovieDetail
-            movieId={this.state.selectedMovieId}
-            returnToMain={this.returnToMain}
-          />
-        )}
-        {!this.state.movieClicked && (
+        <Route exact path='/movies' render={() =>
           <MovieWrapper
             movies={this.state.movies}
             displayOneMovie={this.displayOneMovie}
-          />
-        )}
-        {this.state.error && (
-          <ErrorHandling
-            error={this.state.error}
-          />
-        )}
+          />}
+        />
+
+        <Route exact path='/movies/:movieId'
+          render={({ match }) => {
+            console.log('match', match)
+            // const movieToRender = this.state.movies.find(movie => movie.id === parseInt(match.params.movieId))
+            // console.log('movie to render', movieToRender)
+            return (
+              <MovieDetail
+                movieId={match.params.movieId}
+                returnToMain={this.returnToMain}
+              />
+            )
+          }}
+        />
       </div>
-    );
+    )
   }
 }
 
 export default App;
+
+// <Route exact path='/movies/:movieId'
+//   render={({ match }) => {
+//     console.log(match)
+//     return (<MovieDetail
+//       movieId={this.state.selectedMovieId}
+//       returnToMain={this.returnToMain}
+//       />)
+//   }}
+// />
+
+
+
+// return (
+//   <div className='main-background'>
+//     {this.state.movieClicked && (
+//       <MovieDetail
+//         movieId={this.state.selectedMovieId}
+//         returnToMain={this.returnToMain}
+//       />
+//     )}
+//     {!this.state.movieClicked && (
+//       <MovieWrapper
+//         movies={this.state.movies}
+//         displayOneMovie={this.displayOneMovie}
+//       />
+//     )}
+//     {this.state.error && (
+//       <ErrorHandling
+//         error={this.state.error}
+//       />
+//     )}
+//   </div>
+// );
