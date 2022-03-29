@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './MovieDetail.css';
 import apiCalls from '../../ApiCalls';
+// import { Redirect } from 'react-router-dom';
 
 class MovieDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedMovie: null
+      selectedMovie: {}
     }
   }
-
 
   componentDidMount() {
     console.log("calling single movie api", this.props)
@@ -30,9 +30,9 @@ class MovieDetail extends Component {
     console.log('rendering movie')
     const { returnToMain } = this.props
     const { selectedMovie: movie } = this.state
-    if (!movie) {
-      return <p>None found</p>
-    } else {
+    // if (!movie) {
+    //   return <p>None found</p>
+    // } else {
       return (
         <div
           className='movieDetail'
@@ -43,7 +43,9 @@ class MovieDetail extends Component {
           <div className='gradient'>
             <button
               className='view-all-movies-button'
-              onClick={() => returnToMain()}
+              onClick={() => {
+                console.log('clicked return to main')
+                returnToMain()}}
             >
               View All Movies
             </button>
@@ -60,7 +62,7 @@ class MovieDetail extends Component {
           </div>
         </div>
       );
-    }
+
   }
 }
 
