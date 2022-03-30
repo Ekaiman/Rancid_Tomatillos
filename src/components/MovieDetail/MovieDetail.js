@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './MovieDetail.css';
 import apiCalls from '../../ApiCalls';
-// import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class MovieDetail extends Component {
   constructor(props) {
@@ -28,7 +28,6 @@ class MovieDetail extends Component {
 
   render() {
     console.log('rendering movie')
-    const { returnToMain } = this.props
     const { selectedMovie: movie } = this.state
     // if (!movie) {
     //   return <p>None found</p>
@@ -41,14 +40,12 @@ class MovieDetail extends Component {
           }}
         >
           <div className='gradient'>
-            <button
-              className='view-all-movies-button'
-              onClick={() => {
-                console.log('clicked return to main')
-                returnToMain()}}
-            >
+            
+            <Link to='/'>
+              <button className='view-all-movies-button'>
               View All Movies
-            </button>
+              </button>
+            </Link>
             {/* <img className='back-drop' src={movie.backdrop_path} /> */}
             <section className='title-poster'>
               <img className='poster' src={movie.poster_path} />

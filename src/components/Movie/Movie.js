@@ -5,7 +5,7 @@ function Movie({ rating, backDropPath, id, posterPath, releaseDate, title, displ
   // console.log('id in movie', id)
   return (
     <div className='movie'>
-      <img onClick={()=> (displayOneMovie(id))} className='poster-image' src={posterPath} />
+      <img onClick={()=> (displayOneMovie(id))} className='poster-image' src={posterPath} alt=''/>
       <h1>{title}</h1>
     </div>
   );

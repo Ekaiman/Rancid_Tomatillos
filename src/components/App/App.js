@@ -4,7 +4,7 @@ import MovieWrapper from '../MovieWrapper/MovieWrapper.js';
 import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
-import { Route, NavLink, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 
 class App extends Component {
   constructor() {
@@ -14,7 +14,7 @@ class App extends Component {
       selectedMovie: null,
       selectedMovieId: null,
       movieClicked: false,
-      error: null
+      error: {}
     };
   }
 
@@ -23,17 +23,12 @@ class App extends Component {
     this.setState({ movieClicked: true, selectedMovieId: id })
   };
 
-  returnToMain = () => {
-    // this.setState({ movieClicked: false });
-    // return <Redirect to='/movies' />
-  };
-
   componentDidMount() {
     apiCalls
       .fetchData()
       .then(data => this.setState({ movies: data.movies }))
       .catch(error => {
-        console.log('caught err for ALL MOVIES')
+        console.log('caught err for ALL MOVIES', error)
         this.setState({ error: 'Sorry our team is working on resolving this issue' })
       })
   }
@@ -41,7 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className='main-background'>
-        <Route exact path='/movies'
+        <Route exact path='/'
           render={() =>
             <MovieWrapper
               movies={this.state.movies}
@@ -55,11 +50,12 @@ class App extends Component {
             return (
               <MovieDetail
                 movieId={match.params.movieId}
-                returnToMain={this.returnToMain}
               />
             )
           }}
         />
+
+          
       </div>
     )
   }
