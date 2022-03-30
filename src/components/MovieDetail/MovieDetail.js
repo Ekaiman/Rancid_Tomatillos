@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import './MovieDetail.css';
 import apiCalls from '../../ApiCalls';
 import { Link } from 'react-router-dom';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 class MovieDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedMovie: {}
+      selectedMovie: {},
+      error: false
     }
   }
 
@@ -29,9 +31,6 @@ class MovieDetail extends Component {
   render() {
     console.log('rendering movie')
     const { selectedMovie: movie } = this.state
-    // if (!movie) {
-    //   return <p>None found</p>
-    // } else {
       return (
         <div
           className='movieDetail'
@@ -39,7 +38,7 @@ class MovieDetail extends Component {
             backgroundImage: `url(${movie.backdrop_path})`
           }}
         >
-          <div className='gradient'>
+          {!this.state.error && <div className='gradient'>
             
             <Link to='/'>
               <button className='view-all-movies-button'>
@@ -57,6 +56,13 @@ class MovieDetail extends Component {
               </div>
             </section>
           </div>
+          }
+
+          {this.state.error && (
+            <ErrorHandling
+              error={this.state.error}
+            />
+          )}
         </div>
       );
 

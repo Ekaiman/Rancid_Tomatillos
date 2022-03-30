@@ -14,7 +14,7 @@ class App extends Component {
       selectedMovie: null,
       selectedMovieId: null,
       movieClicked: false,
-      error: {}
+      error: false
     };
   }
 
@@ -36,6 +36,7 @@ class App extends Component {
   render() {
     return (
       <div className='main-background'>
+  
         <Route exact path='/'
           render={() =>
             <MovieWrapper
@@ -55,7 +56,18 @@ class App extends Component {
           }}
         />
 
-          
+        {this.state.error && (
+          <ErrorHandling
+            error={this.state.error}
+          />
+        )}
+
+           
+
+
+      
+        
+
       </div>
     )
   }
