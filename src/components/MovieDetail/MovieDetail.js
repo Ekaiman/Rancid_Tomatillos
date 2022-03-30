@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
 import './MovieDetail.css';
 import apiCalls from '../../ApiCalls';
+import { Link } from 'react-router-dom';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 class MovieDetail extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      selectedMovie: null
+      selectedMovie: {},
+      error: false
     }
   }
-
 
   componentDidMount() {
     console.log("calling single movie api", this.props)
@@ -28,11 +30,7 @@ class MovieDetail extends Component {
 
   render() {
     console.log('rendering movie')
-    const { returnToMain } = this.props
     const { selectedMovie: movie } = this.state
-    if (!movie) {
-      return <p>None found</p>
-    } else {
       return (
         <div
           className='movieDetail'
@@ -40,13 +38,13 @@ class MovieDetail extends Component {
             backgroundImage: `url(${movie.backdrop_path})`
           }}
         >
-          <div className='gradient'>
-            <button
-              className='view-all-movies-button'
-              onClick={() => returnToMain()}
-            >
+          {!this.state.error && <div className='gradient'>
+            
+            <Link to='/'>
+              <button className='view-all-movies-button'>
               View All Movies
-            </button>
+              </button>
+            </Link>
             {/* <img className='back-drop' src={movie.backdrop_path} /> */}
             <section className='title-poster'>
               <img className='poster' src={movie.poster_path} />
@@ -58,9 +56,16 @@ class MovieDetail extends Component {
               </div>
             </section>
           </div>
+          }
+
+          {this.state.error && (
+            <ErrorHandling
+              error={this.state.error}
+            />
+          )}
         </div>
       );
-    }
+
   }
 }
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
+import { NavLink } from 'react-router-dom';
 
 function MovieWrapper({ movies, displayOneMovie }) {
   return movies.map(movie => {
@@ -12,6 +13,7 @@ function MovieWrapper({ movies, displayOneMovie }) {
       title
     } = movie;
     return (
+      <NavLink to={`/movies/${id}`}>
       <Movie
         rating={rating}
         backDropPath={backDropPath}
@@ -22,6 +24,7 @@ function MovieWrapper({ movies, displayOneMovie }) {
         key={id}
         displayOneMovie={displayOneMovie}
       />
+      </NavLink>
     );
   });
 }
