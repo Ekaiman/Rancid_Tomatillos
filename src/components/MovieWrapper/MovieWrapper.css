@@ -1,0 +1,31 @@
+.movie-wrapper {
+  height: 600px;
+  width: 600px;
+  border: solid green;
+  z-index: 10;
+}
+
+.header-image {
+  height: 50vh;
+  width: 100vw;
+  border: solid red;
+   /* height: 80vh;
+  width: 80vw; */
+  position: relative;
+  z-index: 10;
+  border-radius: 20px;
+  background-size: cover;
+}
+.gradient2 {
+  position: absolute;
+ background-color: #18101fb5;
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+   background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 39%)
+  );
+  z-index: -1;
+}
