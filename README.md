@@ -2,7 +2,7 @@
 
 Rancid Tomatillos is a paired project using React to build an application that allows the user to view all movies and their average user rating. The user is also able to click on a see more details button to view the movie's overview, rating, and release date.
 
-![Gif 1](http://g.recordit.co/vfFvdwEx7a.gif)
+![Gif 1](http://g.recordit.co/CR3HlWpf4t.gif)
 
 # Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
