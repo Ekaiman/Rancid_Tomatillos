@@ -1,9 +1,17 @@
 .movie {
-  height: 300px;
-  width: 300px;
-  border: solid yellow;
+  height: 200px;
+  width: 100px;
+  /* border: solid yellow; */
+  /* margin: 20px; */
 }
 
 .poster-image {
-  max-height: 50%;
+  max-height: 80%;
+  margin-bottom: 0px;
+}
+
+.movie-title {
+  margin-top: 5%;
+  font-size: 13px;
+  color: white;
 }

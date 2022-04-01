@@ -19,7 +19,7 @@ function Movie({
         src={posterPath}
         alt=''
       />
-      <h1>{title}</h1>
+      <h1 className='movie-title'>{title}</h1>
     </div>
   );
 }
