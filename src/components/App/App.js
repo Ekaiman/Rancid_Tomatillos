@@ -32,9 +32,9 @@ class App extends Component {
           movies: data.movies,
           randomImg: data.movies[Math.floor(Math.random() * data.movies.length)]
         });
-        // this.state.randomImage =
-        // data.movies[Math.floor(Math.random() * data.movies.length)];
-        console.log(data.movies[Math.floor(Math.random() * data.movies.length)])
+        console.log(
+          data.movies[Math.floor(Math.random() * data.movies.length)]
+        );
         console.log(this.state.randomImg);
       })
       .catch(error => {
@@ -43,41 +43,42 @@ class App extends Component {
           error: 'Sorry our team is working on resolving this issue'
         });
       });
-    
   }
 
   render() {
     return (
-      <div className='main-background'>
-        <header className='title'>Rancid Tomatillos</header>
-        <section className='movie-holder'>
+      <main className='main'>
+      
+          <header className='title'>Rancid Tomatillos</header>
+          <section className='movie-holder'>
+            <Route
+              exact
+              path='/'
+              style={{
+                textDecoration: 'none'
+              }}
+              render={() => (
+                <MovieWrapper
+                  movies={this.state.movies}
+                  displayOneMovie={this.displayOneMovie}
+                  randomImg={this.state.randomImg}
+                />
+              )}
+            />
+          </section>
+
           <Route
             exact
-            path='/'
-            style={{
-              textDecoration: 'none'
+            path='/:movieId'
+            render={({ match }) => {
+              console.log('match', match);
+              return <MovieDetail movieId={match.params.movieId} />;
             }}
-            render={() => (
-              <MovieWrapper
-                movies={this.state.movies}
-                displayOneMovie={this.displayOneMovie}
-                randomImg={this.state.randomImg}
-              />
-            )}
           />
-        </section>
 
-        <Route
-          exact
-          path='/:movieId'
-          render={({ match }) => {
-            console.log('match', match);
-            return <MovieDetail movieId={match.params.movieId} />;
-          }}
-        />
-
-        {this.state.error && <ErrorHandling error={this.state.error} />}
-      </div>
+          {this.state.error && <ErrorHandling error={this.state.error} />}
+     
+      </main>
     );
   }
 }
