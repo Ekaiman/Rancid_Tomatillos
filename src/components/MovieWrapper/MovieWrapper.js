@@ -2,8 +2,11 @@ import React from 'react';
 import Movie from '../Movie/Movie.js';
 import { NavLink, Link } from 'react-router-dom';
 import './MovieWrapper.css';
+import '../../images/sort-abc.svg';
+import '../../images/sort-rating.svg';
+import NavBar from '../NavBar/NavBar.js';
 
-const MovieWrapper = ({ movies, displayOneMovie, randomImg }) => {
+const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
   console.log('>>>>>><<<<<<<', randomImg);
   let movieCard = movies.map(movie => {
     const {
@@ -15,7 +18,7 @@ const MovieWrapper = ({ movies, displayOneMovie, randomImg }) => {
       title
     } = movie;
     return (
-      <div className='movie-holder-div'>
+      <div className='movie-holder-div grow'>
         <Link
           style={{
             textDecoration: 'none',
@@ -40,22 +43,26 @@ const MovieWrapper = ({ movies, displayOneMovie, randomImg }) => {
   });
 
   return (
-    <div>
-      <section
-        className='header-image'
-        style={{
-          backgroundImage: `url(${randomImg.backdrop_path})`
-        }}
-      >
-        <div className='gradient2'>
-          <h1 className='random-movie-title'>{randomImg.title}</h1>
-          <Link to={`${randomImg.id}`}>
-            <button className='movie-details-button'>See Movie Details</button>
-          </Link>
-        </div>
-        {/* <div className='gradient3'></div> */}
-        <section className='movie-wrapper'>{movieCard}</section>
-      </section>
+    <div className='all-wrapper'>
+      <div>
+        <section
+          className='header-image'
+          style={{
+            backgroundImage: `url(${randomImg.backdrop_path})`
+          }}
+        >
+          <div className='gradient2'>
+            <h1 className='random-movie-title'>{randomImg.title}</h1>
+            <Link to={`${randomImg.id}`}>
+              <button className='movie-details-button'>
+                See Movie Details
+              </button>
+            </Link>
+          </div>
+        </section>
+      </div>
+      <NavBar sortMovies={sortMovies}/>
+      <section className='movie-wrapper'>{movieCard}</section>
     </div>
   );
 };
