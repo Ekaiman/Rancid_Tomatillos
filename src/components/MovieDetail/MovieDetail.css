@@ -1,3 +1,11 @@
+.movie-detail-background {
+  height: 85vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .movieDetail {
   height: 80vh;
   width: 80vw;
@@ -5,8 +13,8 @@
   z-index: 10;
   border-radius: 20px;
   background-size: cover;
-  box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2),
-    0 6px 20px 0 rgba(255, 255, 255, 0.19);
+  box-shadow: 0 4px 8px 0 rgb(29 0 65 / 20%),
+    0 6px 20px 0 rgb(150 150 150 / 19%);
 }
 
 .poster {
@@ -28,6 +36,7 @@
 
 .gradient {
   position: absolute;
+  background-color: #18101f66;
   background-image: linear-gradient(
     to left,
     rgba(0, 0, 0, 0),
@@ -44,16 +53,17 @@
   font-size: 30px;
   margin-left: 25px;
   text-shadow: #000000 6px 5px 6px;
+  color: white;
 }
 
 .release-date,
 .rating {
-  font-size: 17px;
+  font-size: 2vh;
   text-shadow: #000000 6px 5px 6px;
 }
 
 .overview {
-  font-size: 12px;
+  font-size: 2vh;
 }
 
 .view-all-movies-button {

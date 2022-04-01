@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Glitch&display=swap');
+
+html,
+body,
+#root,
+#root > div {
+  height: 100%;
+  margin: 0;
+  background-color: #131313;
+}
+
 .App {
   text-align: center;
 }
@@ -37,14 +48,14 @@
   }
 }
 
-.main-background {
-  background-color: #131313;
+.title {
   color: white;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 40px;
+  text-align: center;
+  width: 100%;
+  font-family: 'Rubik Glitch';
+  font-size: 10vh;
+  text-shadow: #000000 6px 5px 6px;
 }
 
 
