@@ -1,31 +1,93 @@
 .movie-wrapper {
-  height: 600px;
-  width: 600px;
-  border: solid green;
-  z-index: 10;
+  height: auto;
+  margin-top: 55vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .header-image {
   height: 50vh;
-  width: 100vw;
-  border: solid red;
-   /* height: 80vh;
-  width: 80vw; */
+  border: solid #131313;
   position: relative;
   z-index: 10;
   border-radius: 20px;
   background-size: cover;
+  margin: 20px;
+  box-shadow: 0 4px 8px 0 rgb(29 0 65 / 20%),
+    0 6px 20px 0 rgb(150 150 150 / 19%);
 }
+
 .gradient2 {
   position: absolute;
- background-color: #18101fb5;
+  background-color: #18101fb5;
   height: 100%;
   width: 100%;
-  border-radius: 20px;
-   background-image: linear-gradient(
+  border-radius: 16px;
+  background-image: linear-gradient(
     to left,
     rgba(0, 0, 0, 0),
     rgba(0, 0, 0, 39%)
   );
   z-index: -1;
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.gradient3 {
+  position: absolute;
+  background-color: #000000d4;
+  height: 50%;
+  width: 100%;
+  border-radius: 20px;
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0),
+    rgba(0, 0, 0, 39%)
+  );
+  z-index: -1;
+  margin-top: 50vh;
+}
+
+.movie-holder-div {
+  margin: 20px;
+}
+
+.movie-details-button {
+  margin: 0px 30px 30px 30px;
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: 0.3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  padding: 16px 14px 18px;
+  color: #616467;
+  box-shadow: inset 0 0 0 2px #616467;
+  background-color: transparent;
+  height: 48px;
+}
+
+.movie-details-button:hover {
+  color: #fff;
+  background-color: #616467;
+}
+
+.random-movie-title {
+  text-align: center;
+  margin-right: 30px;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 3.5vh;
 }
