@@ -2,19 +2,19 @@
 
 Rancid Tomatillos is a paired project using React to build an application that allows the user to view all movies and their average user rating. The application load a random movie on page load as the banner, with the ability to view more details. The user is also able to click on a see more details button to view the movie's overview, rating, and release date.
 
-![Gif 1](http://g.recordit.co/iGm9MlPgSu.gif)
+![Gif 1](http://g.recordit.co/ohtTbodjBq.gif)
 
 # Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
 - [Emili Kaiman](https://github.com/Ekaiman)
 
 # Technologies Used 
+- React
+- Cypress
 - Javascript
 - HTML
 - CSS
-- React
-- Cypress
-- Charts.js
+
 
 # Getting Started
 To get a local copy up and running follow these simple steps.
