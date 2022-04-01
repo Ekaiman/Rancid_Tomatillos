@@ -2,8 +2,8 @@ const apiCalls = {
   fetchData() {
     return fetch('https://rancid-tomatillos.herokuapp.com/api/v2/movies')
       .then(response => {
-        console.log('response', response)
-        console.log('status', response.status)
+        // console.log('response', response)
+        // console.log('status', response.status)
         return response.json()
       })
   },

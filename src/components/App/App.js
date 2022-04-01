@@ -33,8 +33,8 @@ class App extends Component {
       this.setState({movies: sorted})
     } else if (type === 'alphabetically') {
       const sorted = this.state.movies.sort((a, b) => {
-      return a.title.localeCompare(b.title)
-  })
+        return a.title.localeCompare(b.title);
+      });
       this.setState({ movies: sorted });
     }
   }
