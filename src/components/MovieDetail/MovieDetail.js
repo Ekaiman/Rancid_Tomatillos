@@ -18,7 +18,7 @@ class MovieDetail extends Component {
     const { movieId } = this.props;
     console.log('movieId', movieId);
     apiCalls
-      .fetchOneMovie(movieId)
+      .fetchData(movieId)
       .then(data => this.setState({ selectedMovie: data.movie }))
       .catch(error => {
         console.log('caught err for single movie');
