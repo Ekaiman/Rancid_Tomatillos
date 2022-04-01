@@ -38,7 +38,6 @@ class MovieDetail extends Component {
 
   render() {
     console.log('rendering movie');
-    // const { selectedMovie: movie } = this.state;
     const { backdrop_path, poster_path, release_date, overview, title } = this.state.selectedMovie;
     return (
       <section className='movie-detail-background'>
