@@ -15,24 +15,27 @@ const MovieWrapper = ({ movies, displayOneMovie, randomImg }) => {
       title
     } = movie;
     return (
-      <NavLink
-        style={{
-          textDecoration: 'none',
-          color: 'inherit'
-        }}
-        to={`${id}`}
-      >
-        <Movie
-          rating={rating}
-          backDropPath={backDropPath}
-          id={id}
-          posterPath={posterPath}
-          releaseDate={releaseDate}
-          title={title}
-          key={id}
-          displayOneMovie={displayOneMovie}
-        />
-      </NavLink>
+      <div className='movie-holder-div'>
+        <Link
+          style={{
+            textDecoration: 'none',
+            color: 'inherit'
+          }}
+          to={`${id}`}
+          className='link-wrapper'
+        >
+          <Movie
+            rating={rating}
+            backDropPath={backDropPath}
+            id={id}
+            posterPath={posterPath}
+            releaseDate={releaseDate}
+            title={title}
+            key={id}
+            displayOneMovie={displayOneMovie}
+          />
+        </Link>
+      </div>
     );
   });
 
@@ -44,14 +47,14 @@ const MovieWrapper = ({ movies, displayOneMovie, randomImg }) => {
           backgroundImage: `url(${randomImg.backdrop_path})`
         }}
       >
-        <Link to={`${randomImg.id}`}>
-        
         <div className='gradient2'>
-          <h1>{randomImg.title}</h1>
-          <h2></h2>
+          <h1 className='random-movie-title'>{randomImg.title}</h1>
+          <Link to={`${randomImg.id}`}>
+            <button className='movie-details-button'>See Movie Details</button>
+          </Link>
         </div>
-        </Link>
-      <section className='movie-wrapper'>{movieCard}</section>
+        {/* <div className='gradient3'></div> */}
+        <section className='movie-wrapper'>{movieCard}</section>
       </section>
     </div>
   );
