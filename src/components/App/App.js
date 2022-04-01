@@ -13,7 +13,6 @@ class App extends Component {
       movies: [],
       selectedMovie: null,
       selectedMovieId: null,
-      movieClicked: false,
       error: false,
       randomImg: false
     };
@@ -21,7 +20,7 @@ class App extends Component {
 
   displayOneMovie = id => {
     console.log('clicked id', id);
-    this.setState({ movieClicked: true, selectedMovieId: id });
+    this.setState({ selectedMovieId: id });
   };
 
   componentDidMount() {

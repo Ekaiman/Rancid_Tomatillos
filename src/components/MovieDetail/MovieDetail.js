@@ -18,7 +18,7 @@ class MovieDetail extends Component {
     const { movieId } = this.props;
     console.log('movieId', movieId);
     apiCalls
-      .fetchOneMovie(movieId)
+      .fetchData(movieId)
       .then(data => this.setState({ selectedMovie: data.movie }))
       .catch(error => {
         console.log('caught err for single movie');
@@ -38,13 +38,13 @@ class MovieDetail extends Component {
 
   render() {
     console.log('rendering movie');
-    const { selectedMovie: movie } = this.state;
+    const { backdrop_path, poster_path, release_date, overview, title } = this.state.selectedMovie;
     return (
       <section className='movie-detail-background'>
         <div
           className='movieDetail'
           style={{
-            backgroundImage: `url(${movie.backdrop_path})`
+            backgroundImage: `url(${backdrop_path})`
           }}
         >
           {!this.state.error && (
@@ -55,16 +55,16 @@ class MovieDetail extends Component {
                 </button>
               </Link>
               <section className='title-poster'>
-                <img className='poster' src={movie.poster_path} />
+                <img className='poster' src={poster_path} />
                 <div className='text-wrapper'>
-                  <h1>{movie.title}</h1>
+                  <h1>{title}</h1>
                   <h2 className='release-date'>
-                    Released: {movie.release_date}
+                    Released: {release_date}
                   </h2>
                   <h2 className='rating'>
                     Average rating: {this.roundAverage()}
                   </h2>
-                  <h2 className='overview'> {movie.overview}</h2>
+                  <h2 className='overview'> {overview}</h2>
                 </div>
               </section>
             </div>
