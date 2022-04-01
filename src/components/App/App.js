@@ -22,22 +22,24 @@ class App extends Component {
   displayOneMovie = id => {
     console.log('clicked id', id);
     this.setState({ movieClicked: true, selectedMovieId: id });
-    console.log('href', window.location.href)
-    console.log('window', window.location)
+    console.log('href', window.location.href);
+    console.log('window', window.location);
     console.log('pathname', window.location.pathname);
   };
 
-  sortMovies = (type) => {
+  sortMovies = type => {
     if (type === 'rating') {
-      const sorted = this.state.movies.sort((a, b) => b.average_rating - a.average_rating)
-      this.setState({movies: sorted})
+      const sorted = this.state.movies.sort(
+        (a, b) => b.average_rating - a.average_rating
+      );
+      this.setState({ movies: sorted });
     } else if (type === 'alphabetically') {
       const sorted = this.state.movies.sort((a, b) => {
         return a.title.localeCompare(b.title);
       });
       this.setState({ movies: sorted });
     }
-  }
+  };
 
   componentDidMount() {
     apiCalls
@@ -63,37 +65,35 @@ class App extends Component {
   render() {
     return (
       <main className='main'>
-      
-          <header className='title'>Rancid Tomatillos</header>
-          <section className='movie-holder'>
-            <Route
-              exact
-              path='/'
-              style={{
-                textDecoration: 'none'
-              }}
-              render={() => (
-                <MovieWrapper
-                  movies={this.state.movies}
-                  displayOneMovie={this.displayOneMovie}
-                  randomImg={this.state.randomImg}
-                  sortMovies={this.sortMovies}
-                />
-              )}
-            />
-          </section>
-
+        <header className='title'>Rancid Tomatillos</header>
+        <section className='movie-holder'>
           <Route
             exact
-            path='/:movieId'
-            render={({ match }) => {
-              console.log('match', match);
-              return <MovieDetail movieId={match.params.movieId} />;
+            path='/'
+            style={{
+              textDecoration: 'none'
             }}
+            render={() => (
+              <MovieWrapper
+                movies={this.state.movies}
+                displayOneMovie={this.displayOneMovie}
+                randomImg={this.state.randomImg}
+                sortMovies={this.sortMovies}
+              />
+            )}
           />
+        </section>
 
-          {this.state.error && <ErrorHandling error={this.state.error} />}
-     
+        <Route
+          exact
+          path='/:movieId'
+          render={({ match }) => {
+            console.log('match', match);
+            return <MovieDetail movieId={match.params.movieId} />;
+          }}
+        />
+
+        {this.state.error && <ErrorHandling error={this.state.error} />}
       </main>
     );
   }

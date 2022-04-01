@@ -2,8 +2,8 @@ import React from 'react';
 import Movie from '../Movie/Movie.js';
 import { NavLink, Link } from 'react-router-dom';
 import './MovieWrapper.css';
-import '../../images/sort-abc.svg';
-import '../../images/sort-rating.svg';
+// import '../../images/sort-abc.svg';
+// import '../../images/sort-rating.svg';
 import NavBar from '../NavBar/NavBar.js';
 
 const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
