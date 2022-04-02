@@ -29,7 +29,7 @@ class MovieTrailer extends Component {
   render() {
     console.log('movie trailer state', this.state)
     const { movieId } = this.props;
-    const { backdrop_path, poster_path, title } = this.props.selectedMovie;
+    const { backdrop_path, title } = this.props.selectedMovie;
     console.log(!this.state.videos.length)
     
     if (!this.state.videos.length) {
@@ -42,23 +42,16 @@ class MovieTrailer extends Component {
             style={{ backgroundImage: `url(${backdrop_path})` }}
           >
             <div className='gradient'>
-              <div className='btn-container'>
-                <Link to='/'>
-                  <button className='view-btn'>View All Movies</button>
-                </Link>
-                <Link to={`/${movieId}`} >
-                  <button className='view-btn'>View Movie Details</button>
-                </Link>
-              </div>
+              <Link to='/'>
+                <button className='view-btn'>View All Movies</button>
+              </Link>
+              <Link to={`/${movieId}`} >
+                <button className='view-btn'>View Movie Details</button>
+              </Link>
 
               <h1 className='movie-trailer-title'>{title}</h1>
-              
-              <div className='img-container'>
-                <img className='movie-trailer-poster'
-                  src={poster_path}
-                  alt={`movie poster for ${title}`}
-                />
 
+              <div className='img-container'>
                 <iframe
                   width="560"
                   height="315"

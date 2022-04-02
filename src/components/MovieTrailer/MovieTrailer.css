@@ -1,7 +1,3 @@
-.movie-trailer-section * {
-  /* border: solid yellow 2px; */
-}
-
 .movie-trailer-section {
   height: 85vh;
   width: 100vw;
@@ -19,11 +15,6 @@
   background-size: cover;
   box-shadow: 0 4px 8px 0 rgb(29 0 65 / 20%),
     0 6px 20px 0 rgb(150 150 150 / 19%);
-}
-
-.btn-container {
-  display: flex;
-  justify-content: space-between;
 }
 
 .view-btn {
@@ -58,16 +49,16 @@
 .movie-trailer-title {
   font-size: 24px;
   color: white;
-  margin-left: 6%;
-  /* text-align: center; */
+  text-shadow: #000000 6px 5px 6px;
+  /* margin-left: 6%; */
+  text-align: center;
 }
 
 .img-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 }
 
-.movie-trailer-poster,
 .movie-trailer {
   height: 40vh;
 }
