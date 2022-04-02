@@ -7,7 +7,6 @@ class MovieDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      selectedMovie: false,
       error: false
     };
   }
@@ -18,7 +17,10 @@ class MovieDetail extends Component {
     // console.log('movieId', movieId);
     apiCalls
       .fetchData(movieId)
-      .then(data => this.setState({ selectedMovie: data.movie }))
+      .then(data => {
+        this.props.updateSelectedMovie(data.movie)
+        // this.setState({ selectedMovie: data.movie })
+      })
       .catch(error => {
         console.log('caught err for single movie');
         this.setState({
@@ -28,57 +30,61 @@ class MovieDetail extends Component {
   }
 
   roundAverage() {
-    if (this.state.selectedMovie){
+    if (this.props.selectedMovie){
 
-      // console.log(this.state.selectedMovie.average_rating);
-     return this.state.selectedMovie.average_rating.toFixed(2)
+      // console.log(this.props.selectedMovie.average_rating);
+     return this.props.selectedMovie.average_rating.toFixed(2)
     }
   }
 
   render() {
-    console.log('rendering selected movie', this.state.selectedMovie);
-    const { backdrop_path, poster_path, release_date, overview, title, id } = this.state.selectedMovie;
-    return (
-      <section className='movie-detail-background'>
-        <div
-          className='movieDetail'
-          style={{
-            backgroundImage: `url(${backdrop_path})`
-          }}
-        >
-          {!this.state.error && (
-            <div className='gradient'>
-              <Link to='/'>
-                <button className='view-all-movies-button'>
-                  View All Movies
-                </button>
-              </Link>
+    console.log('rendering selected movie', this.props.selectedMovie);
+    if (!this.props.selectedMovie) {
+      return <p>Loading</p>
+    } else {
+      const { backdrop_path, poster_path, release_date, overview, title, id } = this.props.selectedMovie;
+      return (
+        <section className='movie-detail-background'>
+          <div
+            className='movieDetail'
+            style={{
+              backgroundImage: `url(${backdrop_path})`
+            }}
+          >
+            {!this.state.error && (
+              <div className='gradient'>
+                <Link to='/'>
+                  <button className='view-all-movies-button'>
+                    View All Movies
+                  </button>
+                </Link>
 
-              <Link to={`/${id}/video`}>
-                <button className='view-all-movies-button'>
-                  View Movie Trailer
-                </button>
-              </Link>
-              <section className='title-poster'>
-                <img className='poster' src={poster_path} />
-                <div className='text-wrapper'>
-                  <h1>{title}</h1>
-                  <h2 className='release-date'>
-                    Released: {release_date}
-                  </h2>
-                  <h2 className='rating'>
-                    Average rating: {this.roundAverage()}
-                  </h2>
-                  <h2 className='overview'> {overview}</h2>
-                </div>
-              </section>
-            </div>
-          )}
+                <Link to={`/${id}/video`}>
+                  <button className='view-all-movies-button'>
+                    View Movie Trailer
+                  </button>
+                </Link>
+                <section className='title-poster'>
+                  <img className='poster' src={poster_path} />
+                  <div className='text-wrapper'>
+                    <h1>{title}</h1>
+                    <h2 className='release-date'>
+                      Released: {release_date}
+                    </h2>
+                    <h2 className='rating'>
+                      Average rating: {this.roundAverage()}
+                    </h2>
+                    <h2 className='overview'> {overview}</h2>
+                  </div>
+                </section>
+              </div>
+            )}
 
-          {this.state.error && <ErrorHandling error={this.state.error} />}
-        </div>
-      </section>
-    );
+            {this.state.error && <ErrorHandling error={this.state.error} />}
+          </div>
+        </section>
+      );
+    }
   }
 }
 
