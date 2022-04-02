@@ -58,7 +58,8 @@
 .movie-trailer-title {
   font-size: 24px;
   color: white;
-  margin-left: 5%;
+  margin-left: 6%;
+  /* text-align: center; */
 }
 
 .img-container {

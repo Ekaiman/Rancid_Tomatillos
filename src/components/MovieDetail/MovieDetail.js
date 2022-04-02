@@ -53,17 +53,21 @@ class MovieDetail extends Component {
           >
             {!this.state.error && (
               <div className='gradient'>
-                <Link to='/'>
-                  <button className='view-all-movies-button'>
-                    View All Movies
-                  </button>
-                </Link>
+                <div className='btn-container'>
+                  <Link to='/'>
+                    <button className='view-all-movies-button'>
+                      View All Movies
+                    </button>
+                  </Link>
 
-                <Link to={`/${id}/video`}>
-                  <button className='view-all-movies-button'>
-                    View Movie Trailer
-                  </button>
-                </Link>
+                  <Link to={`/${id}/video`}>
+                    <button className='view-all-movies-button'>
+                      View Movie Trailer
+                    </button>
+                  </Link>
+                </div>
+                
+
                 <section className='title-poster'>
                   <img className='poster' src={poster_path} />
                   <div className='text-wrapper'>

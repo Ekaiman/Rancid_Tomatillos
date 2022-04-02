@@ -50,8 +50,9 @@ class MovieTrailer extends Component {
                   <button className='view-btn'>View Movie Details</button>
                 </Link>
               </div>
-              <h1 className='movie-trailer-title'>{title}</h1>
 
+              <h1 className='movie-trailer-title'>{title}</h1>
+              
               <div className='img-container'>
                 <img className='movie-trailer-poster'
                   src={poster_path}
