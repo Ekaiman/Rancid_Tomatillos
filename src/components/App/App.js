@@ -6,6 +6,8 @@ import apiCalls from '../../ApiCalls';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
 import { Route } from 'react-router-dom';
 
+import MovieTrailer from '../MovieTrailer/MovieTrailer';
+
 class App extends Component {
   constructor() {
     super();
@@ -86,6 +88,14 @@ class App extends Component {
           render={({ match }) => {
             console.log('match', match);
             return <MovieDetail movieId={match.params.movieId} />;
+          }}
+        />
+
+        <Route
+          exact path='/:movieId/video'
+          render={({ match }) => {
+            console.log('match', match);
+            return <MovieTrailer movieId={match.params.movieId} />;
           }}
         />
 

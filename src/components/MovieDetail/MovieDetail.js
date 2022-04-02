@@ -3,7 +3,6 @@ import './MovieDetail.css';
 import apiCalls from '../../ApiCalls';
 import { Link } from 'react-router-dom';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
-
 class MovieDetail extends Component {
   constructor(props) {
     super(props);
@@ -38,7 +37,7 @@ class MovieDetail extends Component {
 
   render() {
     console.log('rendering movie');
-    const { backdrop_path, poster_path, release_date, overview, title } = this.state.selectedMovie;
+    const { backdrop_path, poster_path, release_date, overview, title, id } = this.state.selectedMovie;
     return (
       <section className='movie-detail-background'>
         <div
@@ -52,6 +51,12 @@ class MovieDetail extends Component {
               <Link to='/'>
                 <button className='view-all-movies-button'>
                   View All Movies
+                </button>
+              </Link>
+
+              <Link to={`/${id}/video`}>
+                <button className='view-all-movies-button'>
+                  View Movie Trailer
                 </button>
               </Link>
               <section className='title-poster'>
