@@ -5,6 +5,7 @@ import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
 import { Route } from 'react-router-dom';
+import MovieTrailer from '../MovieTrailer/MovieTrailer';
 
 class App extends Component {
   constructor() {
@@ -37,6 +38,11 @@ class App extends Component {
     }
   };
 
+  updateSelectedMovie = (movie) => {
+    console.log('updating selected movie in App', movie)
+    this.setState({ selectedMovie: movie })
+  }
+
   componentDidMount() {
     apiCalls
       .fetchData()
@@ -45,10 +51,10 @@ class App extends Component {
           movies: data.movies,
           randomImg: data.movies[Math.floor(Math.random() * data.movies.length)]
         });
-        console.log(
-          data.movies[Math.floor(Math.random() * data.movies.length)]
-        );
-        console.log(this.state.randomImg);
+        // console.log(
+        //   data.movies[Math.floor(Math.random() * data.movies.length)]
+        // );
+        // console.log(this.state.randomImg);
       })
       .catch(error => {
         console.log('caught err for ALL MOVIES', error);
@@ -85,7 +91,26 @@ class App extends Component {
           path='/:movieId'
           render={({ match }) => {
             console.log('match', match);
-            return <MovieDetail movieId={match.params.movieId} />;
+            return (
+              <MovieDetail 
+                movieId={match.params.movieId}
+                updateSelectedMovie={this.updateSelectedMovie}
+                selectedMovie={this.state.selectedMovie}
+              />
+            );
+          }}
+        />
+
+        <Route
+          exact path='/:movieId/video'
+          render={({ match }) => {
+            console.log('match', match);
+            return (
+              <MovieTrailer 
+                movieId={match.params.movieId}
+                selectedMovie={this.state.selectedMovie}
+              />
+            )
           }}
         />
 
