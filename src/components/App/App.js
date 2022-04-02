@@ -5,7 +5,6 @@ import MovieDetail from '../MovieDetail/MovieDetail';
 import apiCalls from '../../ApiCalls';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
 import { Route } from 'react-router-dom';
-
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
 
 class App extends Component {
@@ -13,6 +12,7 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
+      selectedMovie: null,
       selectedMovieId: null,
       error: false,
       randomImg: false
@@ -37,6 +37,11 @@ class App extends Component {
       this.setState({ movies: sorted });
     }
   };
+
+  updateSelectedMovie = (movie) => {
+    console.log('updating selected movie in App', movie)
+    this.setState({ selectedMovie: movie })
+  }
 
   componentDidMount() {
     apiCalls
@@ -86,7 +91,13 @@ class App extends Component {
           path='/:movieId'
           render={({ match }) => {
             console.log('match', match);
-            return <MovieDetail movieId={match.params.movieId} />;
+            return (
+              <MovieDetail 
+                movieId={match.params.movieId}
+                updateSelectedMovie={this.updateSelectedMovie}
+                selectedMovie={this.state.selectedMovie}
+              />
+            );
           }}
         />
 
@@ -94,7 +105,12 @@ class App extends Component {
           exact path='/:movieId/video'
           render={({ match }) => {
             console.log('match', match);
-            return <MovieTrailer movieId={match.params.movieId} />;
+            return (
+              <MovieTrailer 
+                movieId={match.params.movieId}
+                selectedMovie={this.state.selectedMovie}
+              />
+            )
           }}
         />
 
