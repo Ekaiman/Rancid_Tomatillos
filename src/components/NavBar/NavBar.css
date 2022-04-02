@@ -1,0 +1,26 @@
+.sort {
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #d900009c;
+  margin-top: 21px;
+}
+
+.sort-bar {
+  color: white;
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.holder {
+  display: flex;
+  cursor: pointer;
+}
+
+.holder:hover {
+  color: purple;
+}
