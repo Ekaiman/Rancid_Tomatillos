@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './MovieTrailer.css'
+import { Link } from 'react-router-dom';
 
 class MovieTrailer extends Component {
   constructor(props) {
@@ -16,8 +17,13 @@ class MovieTrailer extends Component {
         <div className='movie-trailer-container'>
           
             <div className='btn-container'>
-              <button className='view-btn'>View All Movies</button>
-              <button className='view-btn'>View Movie Details</button>
+              <Link to='/'>
+                <button className='view-btn'>View All Movies</button>
+              </Link>
+              {/* <Link to={`/${}`} >
+                <button className='view-btn'>View Movie Details</button>
+
+              </Link> */}
             </div>
             <h1 className='movie-trailer-title'>Movie Title</h1>
           
@@ -36,11 +42,8 @@ class MovieTrailer extends Component {
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
               allowFullScreen>
             </iframe>
-
           </div>
-
         </div>
-
       </section>
     )
   }
