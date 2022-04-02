@@ -1,14 +1,29 @@
 import React, { Component } from 'react';
 import './MovieTrailer.css'
 import { Link } from 'react-router-dom';
+import apiCalls from '../../ApiCalls';
 
 class MovieTrailer extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      // selectedVideo: false
-      // videoKey = false
+      videos: []
     }
+  }
+
+  componentDidMount() {
+    const { movieId } = this.props;
+    console.log('mount movie trailer movieId', movieId)
+    
+    apiCalls.fetchMovieTrailer(movieId)
+      .then(data => {
+        console.log('movie trailer data', data)
+        return this.setState({ videos: data.videos })
+      })
+      .catch(error => {
+        console.log('caught err for single movie');
+        this.setState({ error: 'Sorry our team is working on resolving this issue' });
+      });
   }
 
   render() {

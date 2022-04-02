@@ -47,10 +47,10 @@ class App extends Component {
           movies: data.movies,
           randomImg: data.movies[Math.floor(Math.random() * data.movies.length)]
         });
-        console.log(
-          data.movies[Math.floor(Math.random() * data.movies.length)]
-        );
-        console.log(this.state.randomImg);
+        // console.log(
+        //   data.movies[Math.floor(Math.random() * data.movies.length)]
+        // );
+        // console.log(this.state.randomImg);
       })
       .catch(error => {
         console.log('caught err for ALL MOVIES', error);

@@ -10,8 +10,15 @@ const apiCalls = {
 
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/${path}`)
       .then(response => {
-        console.log('response', response)
-        console.log('status', response.status)
+        console.log(response)
+        return response.json()
+      })
+  },
+
+  fetchMovieTrailer(movieId) {
+    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}/videos`)
+      .then(response => {
+        console.log('movie trailer res', response)
         return response.json()
       })
   }

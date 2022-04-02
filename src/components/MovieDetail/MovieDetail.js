@@ -13,9 +13,9 @@ class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    console.log('calling single movie api', this.props);
+    // console.log('calling single movie api', this.props);
     const { movieId } = this.props;
-    console.log('movieId', movieId);
+    // console.log('movieId', movieId);
     apiCalls
       .fetchData(movieId)
       .then(data => this.setState({ selectedMovie: data.movie }))
@@ -30,13 +30,13 @@ class MovieDetail extends Component {
   roundAverage() {
     if (this.state.selectedMovie){
 
-      console.log(this.state.selectedMovie.average_rating);
+      // console.log(this.state.selectedMovie.average_rating);
      return this.state.selectedMovie.average_rating.toFixed(2)
     }
   }
 
   render() {
-    console.log('rendering movie');
+    // console.log('rendering movie');
     const { backdrop_path, poster_path, release_date, overview, title, id } = this.state.selectedMovie;
     return (
       <section className='movie-detail-background'>
