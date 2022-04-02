@@ -13,7 +13,6 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
       selectedMovieId: null,
       error: false,
       randomImg: false

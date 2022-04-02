@@ -21,12 +21,13 @@ class MovieTrailer extends Component {
         return this.setState({ videos: data.videos })
       })
       .catch(error => {
-        console.log('caught err for single movie');
+        console.log('caught err for movie trailer video');
         this.setState({ error: 'Sorry our team is working on resolving this issue' });
       });
   }
 
   render() {
+    const { movieId } = this.props;
     return(
       <section className='movie-trailer-section'>
         <div className='movie-trailer-container'>
@@ -35,10 +36,10 @@ class MovieTrailer extends Component {
               <Link to='/'>
                 <button className='view-btn'>View All Movies</button>
               </Link>
-              {/* <Link to={`/${}`} >
+              <Link to={`/${movieId}`} >
                 <button className='view-btn'>View Movie Details</button>
 
-              </Link> */}
+              </Link>
             </div>
             <h1 className='movie-trailer-title'>Movie Title</h1>
           
