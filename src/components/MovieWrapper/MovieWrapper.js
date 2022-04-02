@@ -5,7 +5,6 @@ import './MovieWrapper.css';
 import NavBar from '../NavBar/NavBar.js';
 
 const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
-  console.log('>>>>>><<<<<<<', randomImg);
   let movieCard = movies.map(movie => {
     const {
       average_rating: rating,
