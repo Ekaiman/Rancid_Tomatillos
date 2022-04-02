@@ -36,7 +36,7 @@
 
 .gradient {
   position: absolute;
-  background-color: #18101f66;
+    background-color: #18101f66;
   background-image: linear-gradient(
     to left,
     rgba(0, 0, 0, 0),
