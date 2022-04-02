@@ -36,39 +36,39 @@ class MovieTrailer extends Component {
       return <p>No Trailer Found</p>
     } else {
       return (
-        <section
-          className='movie-trailer-section'
-          style={{ backgroundImage: `url(${backdrop_path})`}}
-        >
-          <div className='movie-trailer-container'>
+        <section className='movie-trailer-section'>
+          <div 
+            className='movie-trailer-container'
+            style={{ backgroundImage: `url(${backdrop_path})` }}
+          >
+            <div className='gradient'>
+              <div className='btn-container'>
+                <Link to='/'>
+                  <button className='view-btn'>View All Movies</button>
+                </Link>
+                <Link to={`/${movieId}`} >
+                  <button className='view-btn'>View Movie Details</button>
+                </Link>
+              </div>
+              <h1 className='movie-trailer-title'>{title}</h1>
 
-            <div className='btn-container'>
-              <Link to='/'>
-                <button className='view-btn'>View All Movies</button>
-              </Link>
-              <Link to={`/${movieId}`} >
-                <button className='view-btn'>View Movie Details</button>
+              <div className='img-container'>
+                <img className='movie-trailer-poster'
+                  src={poster_path}
+                  alt={`movie poster for ${title}`}
+                />
 
-              </Link>
-            </div>
-            <h1 className='movie-trailer-title'>{title}</h1>
-
-            <div className='img-container'>
-              <img className='movie-trailer-poster'
-                src={poster_path}
-                alt='movie poster'
-              />
-
-              <iframe
-                width="560"
-                height="315"
-                src={`https://www.youtube.com/embed/${this.state.videos[0].key}`}
-                title="YouTube video player"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              >
-              </iframe>
+                <iframe
+                  width="560"
+                  height="315"
+                  src={`https://www.youtube.com/embed/${this.state.videos[0].key}`}
+                  title="YouTube video player"
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                >
+                </iframe>
+              </div>
             </div>
           </div>
         </section>
