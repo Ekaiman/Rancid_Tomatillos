@@ -27,11 +27,21 @@ class MovieTrailer extends Component {
   }
 
   render() {
+    console.log('movie trailer state', this.state)
     const { movieId } = this.props;
-    return(
-      <section className='movie-trailer-section'>
-        <div className='movie-trailer-container'>
-          
+    const { backdrop_path, poster_path, title } = this.props.selectedMovie;
+    console.log(!this.state.videos.length)
+    
+    if (!this.state.videos.length) {
+      return <p>No Trailer Found</p>
+    } else {
+      return (
+        <section
+          className='movie-trailer-section'
+          style={{ backgroundImage: `url(${backdrop_path})`}}
+        >
+          <div className='movie-trailer-container'>
+
             <div className='btn-container'>
               <Link to='/'>
                 <button className='view-btn'>View All Movies</button>
@@ -41,27 +51,29 @@ class MovieTrailer extends Component {
 
               </Link>
             </div>
-            <h1 className='movie-trailer-title'>Movie Title</h1>
-          
-          <div className='img-container'>
-            <img className='movie-trailer-poster'
-              src='https://image.tmdb.org/t/p/original//uOw5JD8IlD546feZ6oxbIjvN66P.jpg'
-              alt='movie poster'
-            />
+            <h1 className='movie-trailer-title'>{title}</h1>
 
-            <iframe 
-              width="560" 
-              height="315" 
-              src="https://www.youtube.com/embed/IpSK2CsKULg" 
-              title="YouTube video player" 
-              frameBorder="0" 
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-              allowFullScreen>
-            </iframe>
+            <div className='img-container'>
+              <img className='movie-trailer-poster'
+                src={poster_path}
+                alt='movie poster'
+              />
+
+              <iframe
+                width="560"
+                height="315"
+                src={`https://www.youtube.com/embed/${this.state.videos[0].key}`}
+                title="YouTube video player"
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              >
+              </iframe>
+            </div>
           </div>
-        </div>
-      </section>
-    )
+        </section>
+      )
+    }
   }
 }
 
