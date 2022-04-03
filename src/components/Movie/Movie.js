@@ -17,10 +17,10 @@ function Movie({
         src={poster}
         alt={`movie poster for ${title}`}
       />
-      <h1 className='movie-title'>{title}</h1>
       <p className='movie-rating'>{Math.round(rating)}
         <span className='fa-solid fa-star'></span>
       </p>
+      <h1 className='movie-title'>{title}</h1>
     </div>
   );
 }

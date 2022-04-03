@@ -15,6 +15,7 @@
   font-size: 12px;
   color: white;
   margin-bottom: 0px;
+  text-shadow: #000000 6px 5px 6px;
 }
 
 .movie-rating {
@@ -27,4 +28,5 @@
 .fa-solid {
   color: gold;
   margin-left: 2px;
+  text-shadow: #000000 6px 5px 6px;
 }
