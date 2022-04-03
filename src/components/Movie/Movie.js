@@ -11,6 +11,7 @@ function Movie({
   displayOneMovie
 }) {
   // console.log('id in movie', id)
+  // console.log('backdrop in movie', backDropPath)
   return (
     <div className='movie'>
       <img
@@ -20,6 +21,9 @@ function Movie({
         alt=''
       />
       <h1 className='movie-title'>{title}</h1>
+      <p className='movie-rating'>{Math.round(rating)}
+        <span class="fa-solid fa-star"></span>
+      </p>
     </div>
   );
 }
