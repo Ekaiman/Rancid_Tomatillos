@@ -22,7 +22,7 @@ function Movie({
       />
       <h1 className='movie-title'>{title}</h1>
       <p className='movie-rating'>{Math.round(rating)}
-        <span class="fa-solid fa-star"></span>
+        <span className='fa-solid fa-star'></span>
       </p>
     </div>
   );

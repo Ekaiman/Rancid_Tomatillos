@@ -74,7 +74,7 @@ class MovieDetail extends Component {
                     </h2>
                     <h2 className='rating'>
                       Average rating: {this.roundAverage()}
-                      <span class="fa-solid fa-star"></span>
+                      <span className='fa-solid fa-star'></span>
                     </h2>
                     <h2 className='overview'> {overview}</h2>
                   </div>
