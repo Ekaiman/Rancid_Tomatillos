@@ -12,7 +12,7 @@ class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    // console.log('calling single movie api', this.props);
+    console.log('calling single movie api', this.props);
     const { movieId } = this.props;
     // console.log('movieId', movieId);
     apiCalls
@@ -29,13 +29,12 @@ class MovieDetail extends Component {
       });
   }
 
-  roundAverage() {
-    if (this.props.selectedMovie){
-
-      // console.log(this.props.selectedMovie.average_rating);
-     return this.props.selectedMovie.average_rating.toFixed(1)
-    }
-  }
+  // roundAverage() {
+  //   if (this.props.selectedMovie) {
+  //     console.log('avg rating', this.props.selectedMovie.average_rating);
+  //     return this.props.selectedMovie.average_rating.toFixed(1)
+  //   }
+  // }
 
   render() {
     console.log('rendering selected movie', this.props.selectedMovie);
@@ -66,14 +65,15 @@ class MovieDetail extends Component {
                 </Link>
                 
                 <section className='title-poster'>
-                  <img className='poster' src={poster_path} />
+                  <img className='poster' src={poster_path} alt={`movie poster for ${title}`}/>
                   <div className='text-wrapper'>
                     <h1>{title}</h1>
                     <h2 className='release-date'>
                       Released: {release_date}
                     </h2>
                     <h2 className='rating'>
-                      Average rating: {this.roundAverage()}
+                      {/* Average rating: {this.roundAverage()} */}
+                      Average rating: {Math.round(this.props.selectedMovie.average_rating)}
                       <span className='fa-solid fa-star'></span>
                     </h2>
                     <h2 className='overview'> {overview}</h2>
