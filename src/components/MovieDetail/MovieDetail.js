@@ -33,7 +33,7 @@ class MovieDetail extends Component {
     if (this.props.selectedMovie){
 
       // console.log(this.props.selectedMovie.average_rating);
-     return this.props.selectedMovie.average_rating.toFixed(2)
+     return this.props.selectedMovie.average_rating.toFixed(1)
     }
   }
 
@@ -59,7 +59,7 @@ class MovieDetail extends Component {
                   </button>
                 </Link>
 
-                <Link to={`/${id}/video`}>
+                <Link to={`/${id}/videos`}>
                   <button className='view-all-movies-button'>
                     View Movie Trailer
                   </button>
@@ -74,6 +74,7 @@ class MovieDetail extends Component {
                     </h2>
                     <h2 className='rating'>
                       Average rating: {this.roundAverage()}
+                      <span class="fa-solid fa-star"></span>
                     </h2>
                     <h2 className='overview'> {overview}</h2>
                   </div>

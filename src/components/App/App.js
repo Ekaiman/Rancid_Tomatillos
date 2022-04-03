@@ -102,7 +102,7 @@ class App extends Component {
         />
 
         <Route
-          exact path='/:movieId/video'
+          exact path='/:movieId/videos'
           render={({ match }) => {
             console.log('match', match);
             return (
