@@ -1,6 +1,6 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './MovieWrapper.css';
 import NavBar from '../NavBar/NavBar.js';
 
@@ -15,7 +15,10 @@ const MovieWrapper = ({ movies, displayOneMovie, randomMovie, sortMovies }) => {
       title
     } = movie;
     return (
-      <div className='movie-holder-div grow'>
+      <div 
+        className='movie-holder-div grow' 
+        key={id}
+      >
         <Link
           style={{
             textDecoration: 'none',
@@ -31,7 +34,6 @@ const MovieWrapper = ({ movies, displayOneMovie, randomMovie, sortMovies }) => {
             poster={poster}
             releaseDate={releaseDate}
             title={title}
-            key={id}
             displayOneMovie={displayOneMovie}
           />
         </Link>
