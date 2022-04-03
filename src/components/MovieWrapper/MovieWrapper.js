@@ -5,13 +5,12 @@ import './MovieWrapper.css';
 import NavBar from '../NavBar/NavBar.js';
 
 const MovieWrapper = ({ movies, displayOneMovie, randomMovie, sortMovies }) => {
-  console.log('>>>>>><<<<<<<', randomMovie);
   let movieCard = movies.map(movie => {
     const {
       average_rating: rating,
-      backdrop_path: backDropPath,
+      backdrop_path: backDrop,
       id,
-      poster_path: posterPath,
+      poster_path: poster,
       release_date: releaseDate,
       title
     } = movie;
@@ -27,9 +26,9 @@ const MovieWrapper = ({ movies, displayOneMovie, randomMovie, sortMovies }) => {
         >
           <Movie
             rating={rating}
-            backDropPath={backDropPath}
+            backDrop={backDrop}
             id={id}
-            posterPath={posterPath}
+            poster={poster}
             releaseDate={releaseDate}
             title={title}
             key={id}
