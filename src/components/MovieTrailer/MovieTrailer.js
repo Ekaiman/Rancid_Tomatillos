@@ -15,7 +15,7 @@ class MovieTrailer extends Component {
     const { movieId } = this.props;
     console.log('mount movie trailer movieId', movieId)
     
-    apiCalls.fetchMovieTrailer(movieId)
+    apiCalls.fetchData(movieId, true)
       .then(data => {
         console.log('movie trailer data', data)
         return this.setState({ videos: data.videos })
