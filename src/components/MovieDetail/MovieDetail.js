@@ -7,7 +7,7 @@ class MovieDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      error: false
+      error: ''
     };
   }
 

@@ -12,10 +12,10 @@ class App extends Component {
     super();
     this.state = {
       movies: [],
-      selectedMovie: null,
-      selectedMovieId: null,
-      error: false,
-      randomImg: false
+      selectedMovie: {},
+      selectedMovieId: false,
+      error: '',
+      randomMovie: {}
     };
   }
 
@@ -49,12 +49,12 @@ class App extends Component {
       .then(data => {
         this.setState({
           movies: data.movies,
-          randomImg: data.movies[Math.floor(Math.random() * data.movies.length)]
+          randomMovie: data.movies[Math.floor(Math.random() * data.movies.length)]
         });
         // console.log(
         //   data.movies[Math.floor(Math.random() * data.movies.length)]
         // );
-        // console.log(this.state.randomImg);
+        // console.log(this.state.randomMovie);
       })
       .catch(error => {
         console.log('caught err for ALL MOVIES', error);
@@ -79,7 +79,7 @@ class App extends Component {
               <MovieWrapper
                 movies={this.state.movies}
                 displayOneMovie={this.displayOneMovie}
-                randomImg={this.state.randomImg}
+                randomMovie={this.state.randomMovie}
                 sortMovies={this.sortMovies}
               />
             )}

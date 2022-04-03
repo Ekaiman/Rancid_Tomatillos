@@ -4,8 +4,8 @@ import { NavLink, Link } from 'react-router-dom';
 import './MovieWrapper.css';
 import NavBar from '../NavBar/NavBar.js';
 
-const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
-  console.log('>>>>>><<<<<<<', randomImg);
+const MovieWrapper = ({ movies, displayOneMovie, randomMovie, sortMovies }) => {
+  console.log('>>>>>><<<<<<<', randomMovie);
   let movieCard = movies.map(movie => {
     const {
       average_rating: rating,
@@ -46,12 +46,12 @@ const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
         <section
           className='header-image'
           style={{
-            backgroundImage: `url(${randomImg.backdrop_path})`
+            backgroundImage: `url(${randomMovie.backdrop_path})`
           }}
         >
           <div className='gradient2'>
-            <h1 className='random-movie-title'>{randomImg.title}</h1>
-            <Link to={`${randomImg.id}`}>
+            <h1 className='random-movie-title'>{randomMovie.title}</h1>
+            <Link to={`${randomMovie.id}`}>
               <button className='movie-details-button'>
                 See Movie Details
               </button>
