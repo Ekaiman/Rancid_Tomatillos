@@ -100,11 +100,12 @@ class App extends Component {
           exact path='/:movieId/videos'
           render={({ match }) => {
             return (
-              <MovieTrailer 
+              <MovieTrailer
                 movieId={match.params.movieId}
                 selectedMovie={this.state.selectedMovie}
+                clearSelectedMovie={this.clearSelectedMovie}
               />
-            )
+            );
           }}
         />
         {this.state.error && <ErrorHandling error={this.state.error} />}
