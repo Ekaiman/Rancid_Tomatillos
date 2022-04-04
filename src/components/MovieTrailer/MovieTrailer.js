@@ -18,9 +18,9 @@ class MovieTrailer extends Component {
       .then(data => {
         return this.setState({ videos: data.videos })
       })
-      .catch(error => 
-        this.setState({ error: 'Sorry our team is working on resolving this issue' });
-      });
+      .catch(error => {
+        this.setState({ error: 'Sorry our team is working on resolving this issue' })
+      })
   }
 
   render() {
