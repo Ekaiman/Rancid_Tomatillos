@@ -62,3 +62,8 @@
 .movie-trailer {
   height: 40vh;
 }
+
+.no-trailer{
+  color:white;
+  text-align: center;
+}

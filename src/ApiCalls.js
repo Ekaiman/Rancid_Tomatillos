@@ -2,7 +2,7 @@ const apiCalls = {
   fetchData(movieId, showVideos = false) {
     let path;
 
-    if(!movieId) {
+    if(!movieId) { 
       path = 'movies'
     } else if(showVideos) {
       path = `movies/${movieId}/videos`
@@ -14,8 +14,11 @@ const apiCalls = {
       .then(response => {
         if (response.ok) {
           return response.json()
+        } else if (response.status === 404) {
+          throw new Error('404')
         } else {
-          throw new Error(`An error occured: status ${response.status}`)
+          console.log(response);
+          throw new Error(`An error occured: status ${response.status}`);
         }
       })
   }

@@ -1,34 +1,52 @@
 import React, { Component } from 'react';
-import './MovieTrailer.css'
+import './MovieTrailer.css';
 import { Link } from 'react-router-dom';
 import apiCalls from '../../ApiCalls';
 
 class MovieTrailer extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       videos: []
-    }
+    };
   }
 
   componentDidMount() {
-    const { movieId } = this.props
-    
-    apiCalls.fetchData(movieId, true)
+    const { movieId } = this.props;
+
+    apiCalls
+      .fetchData(movieId, true)
       .then(data => {
-        return this.setState({ videos: data.videos })
+        return this.setState({ videos: data.videos });
       })
       .catch(error => {
-        this.setState({ error: 'Sorry our team is working on resolving this issue' })
-      })
+        console.log(error.message, 'ERRORRRRR');
+        if (error.message === '404') {
+          console.log('IT WORKED');
+          this.setState({
+            error: '404'
+          });
+        } else {
+          this.setState({
+            error: 'Sorry our team is working on resolving this issue'
+          });
+        }
+      });
   }
 
   render() {
     const { movieId } = this.props;
     const { backdrop_path, title } = this.props.selectedMovie;
-    
+
     if (!this.state.videos.length) {
-      return <p>No Trailer Found</p>
+      return (
+        <section className='no-trailer-wrapper'>
+          <p className='no-trailer'>No Trailer Found</p>
+          <Link className='wrong-path' to='/'>
+            <button>Return to home</button>
+          </Link>
+        </section>
+      );
     } else {
       return (
         <section className='movie-trailer-section'>
