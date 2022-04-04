@@ -12,16 +12,13 @@ class MovieTrailer extends Component {
   }
 
   componentDidMount() {
-    const { movieId } = this.props;
-    console.log('mount movie trailer movieId', movieId)
+    const { movieId } = this.prop
     
     apiCalls.fetchData(movieId, true)
       .then(data => {
-        console.log('movie trailer data', data)
         return this.setState({ videos: data.videos })
       })
-      .catch(error => {
-        console.log('caught err for movie trailer video');
+      .catch(error => 
         this.setState({ error: 'Sorry our team is working on resolving this issue' });
       });
   }
