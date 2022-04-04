@@ -15,7 +15,7 @@ class MovieTrailer extends Component {
     const { movieId } = this.props;
     console.log('mount movie trailer movieId', movieId)
     
-    apiCalls.fetchMovieTrailer(movieId)
+    apiCalls.fetchData(movieId, true)
       .then(data => {
         console.log('movie trailer data', data)
         return this.setState({ videos: data.videos })
@@ -27,10 +27,10 @@ class MovieTrailer extends Component {
   }
 
   render() {
-    console.log('movie trailer state', this.state)
+    // console.log('movie trailer state', this.state)
     const { movieId } = this.props;
     const { backdrop_path, title } = this.props.selectedMovie;
-    console.log(!this.state.videos.length)
+    // console.log(!this.state.videos.length)
     
     if (!this.state.videos.length) {
       return <p>No Trailer Found</p>
@@ -48,9 +48,7 @@ class MovieTrailer extends Component {
               <Link to={`/${movieId}`} >
                 <button className='view-btn'>View Movie Details</button>
               </Link>
-
               <h1 className='movie-trailer-title'>{title}</h1>
-
               <div className='img-container'>
                 <iframe
                   width="560"

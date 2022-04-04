@@ -5,7 +5,6 @@
 .errorStatus,
 .errorMsg {
   box-sizing: border-box;
-
   max-width: 767px;
   width: 100%;
   line-height: 1.4;

@@ -1,22 +1,24 @@
 import React from 'react';
 import Movie from '../Movie/Movie.js';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './MovieWrapper.css';
 import NavBar from '../NavBar/NavBar.js';
 
-const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
-  console.log('>>>>>><<<<<<<', randomImg);
+const MovieWrapper = ({ movies, displayOneMovie, randomMovie, sortMovies }) => {
   let movieCard = movies.map(movie => {
     const {
       average_rating: rating,
-      backdrop_path: backDropPath,
+      backdrop_path: backDrop,
       id,
-      poster_path: posterPath,
+      poster_path: poster,
       release_date: releaseDate,
       title
     } = movie;
     return (
-      <div className='movie-holder-div grow'>
+      <div 
+        className='movie-holder-div grow' 
+        key={id}
+      >
         <Link
           style={{
             textDecoration: 'none',
@@ -27,12 +29,11 @@ const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
         >
           <Movie
             rating={rating}
-            backDropPath={backDropPath}
+            backDrop={backDrop}
             id={id}
-            posterPath={posterPath}
+            poster={poster}
             releaseDate={releaseDate}
             title={title}
-            key={id}
             displayOneMovie={displayOneMovie}
           />
         </Link>
@@ -46,12 +47,12 @@ const MovieWrapper = ({ movies, displayOneMovie, randomImg, sortMovies }) => {
         <section
           className='header-image'
           style={{
-            backgroundImage: `url(${randomImg.backdrop_path})`
+            backgroundImage: `url(${randomMovie.backdrop_path})`
           }}
         >
           <div className='gradient2'>
-            <h1 className='random-movie-title'>{randomImg.title}</h1>
-            <Link to={`${randomImg.id}`}>
+            <h1 className='random-movie-title'>{randomMovie.title}</h1>
+            <Link to={`${randomMovie.id}`}>
               <button className='movie-details-button'>
                 See Movie Details
               </button>
