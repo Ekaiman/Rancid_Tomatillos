@@ -13,9 +13,13 @@ const apiCalls = {
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/${path}`)
       .then(response => {
         console.log(response)
-        return response.json()
+        if (response.ok) {
+          return response.json()
+        } else {
+          throw new Error(`An error occured: status ${response.status}`)
+        }
       })
-  },
+  }
 };
 
 export default apiCalls;
