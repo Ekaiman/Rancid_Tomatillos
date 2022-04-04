@@ -5,6 +5,7 @@ import { Route, Link } from 'react-router-dom';
 import ErrorHandling from '../ErrorHandling/ErrorHandling';
 import WrongPath
  from '../WrongPath/WrongPath';
+ 
 class MovieDetail extends Component {
   constructor(props) {
     super(props);
@@ -21,11 +22,9 @@ class MovieDetail extends Component {
         this.props.updateSelectedMovie(data.movie);
       })
       .catch(error => {
-        console.log(error.message, 'ERRORRRRR')
         if (
           error.message === '404'
         ) {
-          console.log('IT WORKED')
           this.setState({
             error: '404'
           });

@@ -2,7 +2,9 @@
 
 Rancid Tomatillos is a paired project using React to build an application that allows the user to view all movies and their average user rating. The application load a random movie on page load as the banner, with the ability to view more details. The user is also able to click on a see more details button to view the movie's overview, rating, and release date.
 
-![Gif 1](https://media0.giphy.com/media/lA782QwchQ2ucYtPnC/giphy.gif?cid=790b76116f4a6130a1602f6d02640317686498c290da1c03&rid=giphy.gif&ct=g)
+![Gif 1](https://media.giphy.com/media/aooFim06ULI1TlUyJe/giphy.gif)
+1[Gif 2](https://media.giphy.com/media/657pkDahvCs0yU2t9u/giphy.gif)
+
 
 # Deployment
 Here's a link to the application: [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
@@ -48,6 +50,9 @@ After starting both servers, project will run at http://localhost:8080/   -->
 <!-- # Code Architecture 
 If you want to know more about our code architecture, [click here](https://gist.github.com/Ekaiman/f0c6022e295921a810e7531a4d38f9b0). -->
 
+# Learning Goals
+- Build a multipage application with React
+- Use Router with React
 
 # Challenges and Wins
 This was our first time building an application in React, rather than Vanillas JS. It was a breath of fresh air to create something that allowed for reusable components. Learning how to test with cypress that was a challenge we would like to work on.
