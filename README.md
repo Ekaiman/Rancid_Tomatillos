@@ -48,6 +48,9 @@ After starting both servers, project will run at http://localhost:8080/   -->
 <!-- # Code Architecture 
 If you want to know more about our code architecture, [click here](https://gist.github.com/Ekaiman/f0c6022e295921a810e7531a4d38f9b0). -->
 
+# Learning Goals
+- Build a multipage application with React
+- Use Router with React
 
 # Challenges and Wins
 This was our first time building an application in React, rather than Vanillas JS. It was a breath of fresh air to create something that allowed for reusable components. Learning how to test with cypress that was a challenge we would like to work on.
