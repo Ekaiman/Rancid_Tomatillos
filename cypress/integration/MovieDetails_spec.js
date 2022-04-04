@@ -20,6 +20,6 @@ describe('Rancid Tomatillos movie page', () => {
     cy.visit('http://localhost:3000/659986')
       .contains('View Movie Trailer')
       .click()
-      .get('.movie-trailer-section');
+      .get('.movie-trailer-section')
   });
 });
