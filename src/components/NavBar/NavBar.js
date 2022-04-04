@@ -6,7 +6,7 @@ import './NavBar.css';
 function NavBar({ sortMovies }) {
   return (
     <nav className='sort-bar'>
-      <div className='holder' onClick={() => sortMovies('alphabetically')}>
+      <div className='abc holder' onClick={() => sortMovies('alphabetically')}>
         <p className='sort'></p>
         <p>Sort A-Z</p>
       </div>

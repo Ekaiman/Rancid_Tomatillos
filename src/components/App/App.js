@@ -6,6 +6,7 @@ import apiCalls from '../../ApiCalls'
 import { Route, Switch } from 'react-router-dom';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import WrongPath from '../WrongPath/WrongPath';
+import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 class App extends Component {
   constructor() {
@@ -56,7 +57,6 @@ class App extends Component {
         });
       })
       .catch(error => {
-        console.log(error.message, 'ERRORRRRR');
         if (error.message === '404') {
           this.setState({
             error: '404'
@@ -117,6 +117,7 @@ class App extends Component {
             }}
           />
           <Route component={WrongPath} />
+          
         </Switch>
       </main>
     );
