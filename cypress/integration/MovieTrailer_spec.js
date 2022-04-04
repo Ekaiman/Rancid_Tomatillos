@@ -9,6 +9,15 @@ describe('Rancid Tomatillos movie trailer page', () => {
   it('should be able to visit the movie trailer page', () => {
     cy.get('header')
       .contains('Rancid Tomatillos')
+      .should('be.visible')
+      .should('have.css', 'font-family')
+      .and('match', /Rubik Glitch/)
+  });
+
+  it('should display a movie trailer video', () => {
+    cy.get('iframe')
+      .should('have.attr', 'title')
+      .and('match', /YouTube video player/)
   });
 
   it('should be able to navigate to the movies page', () => {
