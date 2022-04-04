@@ -20,7 +20,6 @@ class App extends Component {
   }
 
   displayOneMovie = id => {
-    // console.log('clicked id', id);
     this.setState({ selectedMovieId: id });
   };
 
@@ -39,8 +38,11 @@ class App extends Component {
   };
 
   updateSelectedMovie = (movie) => {
-    // console.log('updating selected movie in App', movie)
     this.setState({ selectedMovie: movie })
+  }
+
+  clearSelectedMovie = () => {
+    this.setState({ selectedMovie: {} });
   }
 
   componentDidMount() {
@@ -53,7 +55,6 @@ class App extends Component {
         });
       })
       .catch(error => {
-        // console.log('caught err for ALL MOVIES', error);
         this.setState({
           error: 'Sorry our team is working on resolving this issue'
         });
@@ -85,12 +86,12 @@ class App extends Component {
           exact
           path='/:movieId'
           render={({ match }) => {
-            // console.log('match', match);
             return (
               <MovieDetail 
                 movieId={match.params.movieId}
                 updateSelectedMovie={this.updateSelectedMovie}
                 selectedMovie={this.state.selectedMovie}
+                clearSelectedMovie={this.clearSelectedMovie}
               />
             );
           }}
@@ -98,13 +99,13 @@ class App extends Component {
         <Route
           exact path='/:movieId/videos'
           render={({ match }) => {
-            // console.log('match', match);
             return (
-              <MovieTrailer 
+              <MovieTrailer
                 movieId={match.params.movieId}
                 selectedMovie={this.state.selectedMovie}
+                clearSelectedMovie={this.clearSelectedMovie}
               />
-            )
+            );
           }}
         />
         {this.state.error && <ErrorHandling error={this.state.error} />}
