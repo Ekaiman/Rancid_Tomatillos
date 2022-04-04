@@ -26,4 +26,10 @@ describe('Rancid Tomatillos home page', () => {
       .get('.title-poster')
       .get('.poster');
   })
+
+  it('should be able to sort alpabetically', () => {
+    cy.visit('http://localhost:3000')
+    .get('.sort-bar')
+    .contains("Sort A-Z").click()
+  })
 });
