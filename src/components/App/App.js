@@ -2,10 +2,10 @@ import './App.css';
 import React, { Component } from 'react';
 import MovieWrapper from '../MovieWrapper/MovieWrapper.js';
 import MovieDetail from '../MovieDetail/MovieDetail';
-import apiCalls from '../../ApiCalls';
-import ErrorHandling from '../ErrorHandling/ErrorHandling';
-import { Route } from 'react-router-dom';
+import apiCalls from '../../ApiCalls'
+import { Route, Switch } from 'react-router-dom';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
+import WrongPath from '../WrongPath/WrongPath';
 
 class App extends Component {
   constructor() {
@@ -37,13 +37,13 @@ class App extends Component {
     }
   };
 
-  updateSelectedMovie = (movie) => {
-    this.setState({ selectedMovie: movie })
-  }
+  updateSelectedMovie = movie => {
+    this.setState({ selectedMovie: movie });
+  };
 
   clearSelectedMovie = () => {
     this.setState({ selectedMovie: {} });
-  }
+  };
 
   componentDidMount() {
     apiCalls
@@ -51,13 +51,21 @@ class App extends Component {
       .then(data => {
         this.setState({
           movies: data.movies,
-          randomMovie: data.movies[Math.floor(Math.random() * data.movies.length)]
+          randomMovie:
+            data.movies[Math.floor(Math.random() * data.movies.length)]
         });
       })
       .catch(error => {
-        this.setState({
-          error: 'Sorry our team is working on resolving this issue'
-        });
+        console.log(error.message, 'ERRORRRRR');
+        if (error.message === '404') {
+          this.setState({
+            error: '404'
+          });
+        } else {
+          this.setState({
+            error: 'Sorry our team is working on resolving this issue'
+          });
+        }
       });
   }
 
@@ -65,7 +73,7 @@ class App extends Component {
     return (
       <main className='main'>
         <header className='title'>Rancid Tomatillos</header>
-        <section className='movie-holder'>
+        <Switch>
           <Route
             exact
             path='/'
@@ -81,34 +89,35 @@ class App extends Component {
               />
             )}
           />
-        </section>
-        <Route
-          exact
-          path='/:movieId'
-          render={({ match }) => {
-            return (
-              <MovieDetail 
-                movieId={match.params.movieId}
-                updateSelectedMovie={this.updateSelectedMovie}
-                selectedMovie={this.state.selectedMovie}
-                clearSelectedMovie={this.clearSelectedMovie}
-              />
-            );
-          }}
-        />
-        <Route
-          exact path='/:movieId/videos'
-          render={({ match }) => {
-            return (
-              <MovieTrailer
-                movieId={match.params.movieId}
-                selectedMovie={this.state.selectedMovie}
-                clearSelectedMovie={this.clearSelectedMovie}
-              />
-            );
-          }}
-        />
-        {this.state.error && <ErrorHandling error={this.state.error} />}
+          <Route
+            exact
+            path='/:movieId'
+            render={({ match }) => {
+              return (
+                <MovieDetail
+                  movieId={match.params.movieId}
+                  updateSelectedMovie={this.updateSelectedMovie}
+                  selectedMovie={this.state.selectedMovie}
+                  clearSelectedMovie={this.clearSelectedMovie}
+                />
+              );
+            }}
+          />
+          <Route
+            exact
+            path='/:movieId/videos'
+            render={({ match }) => {
+              return (
+                <MovieTrailer
+                  movieId={match.params.movieId}
+                  selectedMovie={this.state.selectedMovie}
+                  clearSelectedMovie={this.clearSelectedMovie}
+                />
+              );
+            }}
+          />
+          <Route component={WrongPath} />
+        </Switch>
       </main>
     );
   }
