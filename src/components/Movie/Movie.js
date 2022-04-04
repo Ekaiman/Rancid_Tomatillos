@@ -3,22 +3,23 @@ import './Movie.css';
 
 function Movie({
   rating,
-  backDropPath,
   id,
-  posterPath,
-  releaseDate,
+  poster,
   title,
   displayOneMovie
 }) {
-  // console.log('id in movie', id)
+  
   return (
     <div className='movie'>
       <img
         onClick={() => displayOneMovie(id)}
         className='poster-image'
-        src={posterPath}
-        alt=''
+        src={poster}
+        alt={`movie poster for ${title}`}
       />
+      <p className='movie-rating'>{Math.round(rating)}
+        <span className='fa-solid fa-star'></span>
+      </p>
       <h1 className='movie-title'>{title}</h1>
     </div>
   );

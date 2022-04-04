@@ -4,12 +4,18 @@ Rancid Tomatillos is a paired project using React to build an application that a
 
 ![Gif 1](https://media0.giphy.com/media/lA782QwchQ2ucYtPnC/giphy.gif?cid=790b76116f4a6130a1602f6d02640317686498c290da1c03&rid=giphy.gif&ct=g)
 
+# Deployment
+Here's a link to the application: [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
+
+The application was deployed using [Surge](surge.sh)
+
 # Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
 - [Emili Kaiman](https://github.com/Ekaiman)
 
 # Technologies Used 
 - React
+- React Router
 - Cypress
 - Javascript
 - HTML

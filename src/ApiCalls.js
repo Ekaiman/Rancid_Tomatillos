@@ -1,25 +1,25 @@
 const apiCalls = {
-  fetchData(movieId) {
+  fetchData(movieId, showVideos = false) {
     let path;
 
-    if(!movieId) {
+    if(!movieId) { 
       path = 'movies'
+    } else if(showVideos) {
+      path = `movies/${movieId}/videos`
     } else {
       path = `movies/${movieId}`
     }
 
     return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/${path}`)
       .then(response => {
-        console.log(response)
-        return response.json()
-      })
-  },
-
-  fetchMovieTrailer(movieId) {
-    return fetch(`https://rancid-tomatillos.herokuapp.com/api/v2/movies/${movieId}/videos`)
-      .then(response => {
-        console.log('movie trailer res', response)
-        return response.json()
+        if (response.ok) {
+          return response.json()
+        } else if (response.status === 404) {
+          throw new Error('404')
+        } else {
+          console.log(response);
+          throw new Error(`An error occured: status ${response.status}`);
+        }
       })
   }
 };
