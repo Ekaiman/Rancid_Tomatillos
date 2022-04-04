@@ -27,10 +27,8 @@ class MovieTrailer extends Component {
   }
 
   render() {
-    // console.log('movie trailer state', this.state)
     const { movieId } = this.props;
     const { backdrop_path, title } = this.props.selectedMovie;
-    // console.log(!this.state.videos.length)
     
     if (!this.state.videos.length) {
       return <p>No Trailer Found</p>

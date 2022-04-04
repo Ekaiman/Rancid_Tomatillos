@@ -12,32 +12,21 @@ class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    // console.log('calling single movie api', this.props);
     const { movieId } = this.props;
-    // console.log('movieId', movieId);
     apiCalls
       .fetchData(movieId)
       .then(data => {
         this.props.updateSelectedMovie(data.movie)
-        // this.setState({ selectedMovie: data.movie })
       })
       .catch(error => {
-        // console.log('caught err for single movie');
         this.setState({
           error: 'Sorry our team is working on resolving this issue'
         });
       });
   }
 
-  // roundAverage() {
-  //   if (this.props.selectedMovie) {
-  //     console.log('avg rating', this.props.selectedMovie.average_rating);
-  //     return this.props.selectedMovie.average_rating.toFixed(1)
-  //   }
-  // }
 
   render() {
-    // console.log('rendering selected movie', this.props.selectedMovie);
     if (!this.props.selectedMovie) {
       return <p>Loading</p>
     } else {
@@ -72,7 +61,6 @@ class MovieDetail extends Component {
                       Released: {release_date}
                     </h2>
                     <h2 className='rating'>
-                      {/* Average rating: {this.roundAverage()} */}
                       Average rating: {Math.round(this.props.selectedMovie.average_rating)}
                       <span className='fa-solid fa-star'></span>
                     </h2>
