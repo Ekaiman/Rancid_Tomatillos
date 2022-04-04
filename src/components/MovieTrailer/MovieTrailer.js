@@ -49,8 +49,8 @@ class MovieTrailer extends Component {
           className='movie-trailer-container'
           style={{ backgroundImage: `url(${backdrop_path})` }}
         >
-          {this.state.error && <ErrorHandling />}
-          {!this.state.error && <div className='gradient'>
+        
+         <div className='gradient'>
             <Link to='/'>
               <button
                 className='view-btn'
@@ -74,7 +74,7 @@ class MovieTrailer extends Component {
                 allowFullScreen
               ></iframe>
             </div>
-          </div>}
+          </div>
         </div>
       </section>
     );

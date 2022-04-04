@@ -8,7 +8,6 @@ describe('Rancid Tomatillos movie page', () => {
       .get('.poster');
   });
 
-
   it('should return back to all movies', () => {
     cy.visit('http://localhost:3000/659986')
       .contains('View All Movies')
@@ -20,6 +19,6 @@ describe('Rancid Tomatillos movie page', () => {
     cy.visit('http://localhost:3000/659986')
       .contains('View Movie Trailer')
       .click()
-      .get('.movie-trailer-section')
+      .get('.movie-trailer-section');
   });
 });
