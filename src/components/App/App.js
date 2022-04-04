@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   displayOneMovie = id => {
-    console.log('clicked id', id);
+    // console.log('clicked id', id);
     this.setState({ selectedMovieId: id });
   };
 
@@ -39,7 +39,7 @@ class App extends Component {
   };
 
   updateSelectedMovie = (movie) => {
-    console.log('updating selected movie in App', movie)
+    // console.log('updating selected movie in App', movie)
     this.setState({ selectedMovie: movie })
   }
 
@@ -51,13 +51,9 @@ class App extends Component {
           movies: data.movies,
           randomMovie: data.movies[Math.floor(Math.random() * data.movies.length)]
         });
-        // console.log(
-        //   data.movies[Math.floor(Math.random() * data.movies.length)]
-        // );
-        // console.log(this.state.randomMovie);
       })
       .catch(error => {
-        console.log('caught err for ALL MOVIES', error);
+        // console.log('caught err for ALL MOVIES', error);
         this.setState({
           error: 'Sorry our team is working on resolving this issue'
         });
@@ -85,12 +81,11 @@ class App extends Component {
             )}
           />
         </section>
-
         <Route
           exact
           path='/:movieId'
           render={({ match }) => {
-            console.log('match', match);
+            // console.log('match', match);
             return (
               <MovieDetail 
                 movieId={match.params.movieId}
@@ -100,11 +95,10 @@ class App extends Component {
             );
           }}
         />
-
         <Route
           exact path='/:movieId/videos'
           render={({ match }) => {
-            console.log('match', match);
+            // console.log('match', match);
             return (
               <MovieTrailer 
                 movieId={match.params.movieId}
@@ -113,7 +107,6 @@ class App extends Component {
             )
           }}
         />
-
         {this.state.error && <ErrorHandling error={this.state.error} />}
       </main>
     );

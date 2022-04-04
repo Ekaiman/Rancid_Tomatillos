@@ -12,7 +12,7 @@ class MovieDetail extends Component {
   }
 
   componentDidMount() {
-    console.log('calling single movie api', this.props);
+    // console.log('calling single movie api', this.props);
     const { movieId } = this.props;
     // console.log('movieId', movieId);
     apiCalls
@@ -22,7 +22,7 @@ class MovieDetail extends Component {
         // this.setState({ selectedMovie: data.movie })
       })
       .catch(error => {
-        console.log('caught err for single movie');
+        // console.log('caught err for single movie');
         this.setState({
           error: 'Sorry our team is working on resolving this issue'
         });
@@ -37,7 +37,7 @@ class MovieDetail extends Component {
   // }
 
   render() {
-    console.log('rendering selected movie', this.props.selectedMovie);
+    // console.log('rendering selected movie', this.props.selectedMovie);
     if (!this.props.selectedMovie) {
       return <p>Loading</p>
     } else {
