@@ -43,6 +43,10 @@ class App extends Component {
     this.setState({ selectedMovie: movie })
   }
 
+  clearSelectedMovie = () => {
+    this.setState({ selectedMovie: {} });
+  }
+
   componentDidMount() {
     apiCalls
       .fetchData()
@@ -91,6 +95,7 @@ class App extends Component {
                 movieId={match.params.movieId}
                 updateSelectedMovie={this.updateSelectedMovie}
                 selectedMovie={this.state.selectedMovie}
+                clearSelectedMovie={this.clearSelectedMovie}
               />
             );
           }}

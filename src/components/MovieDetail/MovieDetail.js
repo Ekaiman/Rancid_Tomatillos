@@ -53,7 +53,7 @@ class MovieDetail extends Component {
             {!this.state.error && (
               <div className='gradient'>
                 <Link to='/'>
-                  <button className='view-all-movies-button'>
+                  <button className='view-all-movies-button' onClick={this.props.clearSelectedMovie}>
                     View All Movies
                   </button>
                 </Link>
