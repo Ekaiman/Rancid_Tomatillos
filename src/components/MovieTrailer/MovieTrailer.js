@@ -12,7 +12,7 @@ class MovieTrailer extends Component {
   }
 
   componentDidMount() {
-    const { movieId } = this.prop
+    const { movieId } = this.props
     
     apiCalls.fetchData(movieId, true)
       .then(data => {
