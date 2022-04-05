@@ -6,7 +6,6 @@ import apiCalls from '../../ApiCalls'
 import { Route, Switch } from 'react-router-dom';
 import MovieTrailer from '../MovieTrailer/MovieTrailer';
 import WrongPath from '../WrongPath/WrongPath';
-import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 class App extends Component {
   constructor() {

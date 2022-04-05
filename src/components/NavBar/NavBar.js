@@ -1,6 +1,4 @@
 import React from 'react';
-import Movie from '../Movie/Movie.js';
-import { NavLink, Link } from 'react-router-dom';
 import './NavBar.css';
 
 function NavBar({ sortMovies }) {

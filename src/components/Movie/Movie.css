@@ -1,7 +1,6 @@
 .movie {
   height: 200px;
   width: 100px;
-  /* border: solid yellow; */
   margin: 10px;
 }
 
@@ -21,7 +20,6 @@
 .movie-rating {
   color: white;
   font-size: 11px;
-  /* padding-bottom: 4px; */
 }
 
 .fa-star, 
