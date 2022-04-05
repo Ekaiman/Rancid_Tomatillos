@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './MovieTrailer.css';
 import { Link } from 'react-router-dom';
 import apiCalls from '../../ApiCalls';
-import ErrorHandling from '../ErrorHandling/ErrorHandling';
 
 class MovieTrailer extends Component {
   constructor(props) {
