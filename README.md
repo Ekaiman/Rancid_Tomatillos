@@ -1,11 +1,11 @@
 # Rancid Tomatillos
 
 ## Overview
-Rancid Tomatillos is a paired project built using React. The application allows the user to navigate to different "pages" or views via implementing React Router. 
+Rancid Tomatillos is a paired project built using React. The application allows the user to navigate to different "pages" or views via implemention of React Router. 
 
 On the home page, the user can view all movies and their average user rating. A user can click on various links that navigate the user to different "pages". These pages include an all movies page, movie details page and movie trailer page. 
 
-Also on the home page, a random movie image displays on page load as the banner that provides links to navigate the user to view the random movie's details. The movie details "page" displays the movie's title, poster, overview, rating, and release date.
+Also on the home page, a random movie image displays on page load. The random image is diaplayed in the banner and provides links that navigates the user to view the random movie's details. The movie details "page" displays the movie's title, poster, overview, rating, and release date.
 
 Click here to see [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
 
@@ -68,11 +68,11 @@ Cypress testing was a bit of a challenge to learn and we hope to improve on test
 - Responsive design
 
 # Deployment
-Here's the deploy link to the application: [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
+Skip installation by using this deployment link to view the application: [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
 
-No installlation is needed  with the provided deploy link.
+- No installlation is needed  with the provided deploy link.
 
-The application was deployed using [Surge](surge.sh)
+- The application was deployed using [Surge](surge.sh).
 
 # Contributors
 - [Lauralyn Watson](https://github.com/lswatson16)
@@ -83,3 +83,4 @@ The application was deployed using [Surge](surge.sh)
 - [Google fonts](https://fonts.google.com/)
 - [Favicon generator](https://favicon.io/favicon-generator/)
 - [Surge](surge.sh)
+- [Create React App](https://create-react-app.dev/)
