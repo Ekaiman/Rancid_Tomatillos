@@ -1,6 +1,6 @@
 # Rancid Tomatillos
 
-Rancid Tomatillos is a paired project using React to build an application that allows the user to view all movies and their average user rating. The application load a random movie on page load as the banner, with the ability to view more details. The user is also able to click on a see more details button to view the movie's overview, rating, and release date.
+Rancid Tomatillos is a paired project using React to build an application that allows the user to view all movies, average user rating, an overview and trailer. The application loads a random movie on page load as the banner, with the ability to view more details. The user can also sort movies alphabetically or by highest rating.
 
 ![Gif 1](https://media.giphy.com/media/aooFim06ULI1TlUyJe/giphy.gif)
 ![Gif 2](https://media.giphy.com/media/M9pAFLfqox02B7ysTu/giphy.gif)
