@@ -32,6 +32,9 @@ Click here to see [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
 
 The home page shows a random movie image in the banner with a "See Movie Details" button. This button will navigate the user to the random movie's details page. From here the user can navigate to the movie trailer page or return to the page that displays all movies page by the click of a button.
 
+![Mulan 2](https://media.giphy.com/media/M9pAFLfqox02B7ysTu/giphy.gif)
+
+
 A sorting feature is on the home page that sorts the list of movies alphabetically or sorts the movies by their rating.
 
 ## View Movie Details
@@ -107,3 +110,7 @@ Skip installation by using this deployment link to view the application: [Rancid
 - [Favicon generator](https://favicon.io/favicon-generator/)
 - [Surge](surge.sh)
 - [Create React App](https://create-react-app.dev/)
+
+<!-- ![Gif 1](https://media.giphy.com/media/aooFim06ULI1TlUyJe/giphy.gif)
+
+![Gif 3](https://media.giphy.com/media/HBR9OszEHTLlpJ3ajP/giphy.gif) -->
