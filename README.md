@@ -9,7 +9,7 @@ On the home page, the user can view all movies and their average user rating. A 
 
 Also on the home page, a random movie image displays on page load. The random image is diaplayed in the banner and provides links that navigates the user to view the random movie's details. The movie details "page" displays the movie's title, poster, overview, rating, and release date.
 
-Click here to see [Rancid Tomatillos](https://gaping-hammer.surge.sh/413518)
+Click here to see [Rancid Tomatillos](https://gaping-hammer.surge.sh)
 # Learning Goals
 - React fundamentals
 - Build a multipage application with Router
@@ -94,7 +94,7 @@ Cypress testing was a bit of a challenge to learn and we hope to improve on test
 - Responsive design
 
 # Deployment
-Skip installation by using this deployment link to view the application: [Rancid Tomatillos](https://gaping-hammer.surge.sh/413518)
+Skip installation by using this deployment link to view the application: [Rancid Tomatillos](https://gaping-hammer.surge.sh)
 
 - No installlation is needed  with the provided deploy link.
 
