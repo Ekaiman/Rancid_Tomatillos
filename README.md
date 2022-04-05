@@ -3,15 +3,13 @@
 ## Overview
 Rancid Tomatillos is a paired project built using React. The application allows the user to navigate to different "pages" or views via implemention of React Router. 
 
+![Gif home page](https://media.giphy.com/media/3ucvdJt724vXFOaexJ/giphy.gif)
+
 On the home page, the user can view all movies and their average user rating. A user can click on various links that navigate the user to different "pages". These pages include an all movies page, movie details page and movie trailer page. 
 
 Also on the home page, a random movie image displays on page load. The random image is diaplayed in the banner and provides links that navigates the user to view the random movie's details. The movie details "page" displays the movie's title, poster, overview, rating, and release date.
 
 Click here to see [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
-
-![Gif 1](https://media.giphy.com/media/aooFim06ULI1TlUyJe/giphy.gif)
-![Gif 2](https://media.giphy.com/media/657pkDahvCs0yU2t9u/giphy.gif)
-
 # Learning Goals
 - React fundamentals
 - Build a multipage application with Router
@@ -28,6 +26,31 @@ Click here to see [Rancid Tomatillos](rancid-tomatillos-ek-lw.surge.sh)
 
 # Features
 
+## Home page
+
+![RandomMovie](https://media.giphy.com/media/7TSltAwXaadaGtSrIk/giphy.gif)
+
+The home page shows a random movie image in the banner with a "See Movie Details" button. This button will navigate the user to the random movie's details page. From here the user can navigate to the movie trailer page or return to the page that displays all movies page by the click of a button.
+
+A sorting feature is on the home page that sorts the list of movies alphabetically or sorts the movies by their rating.
+
+## View Movie Details
+
+![Gif 1](https://media.giphy.com/media/aooFim06ULI1TlUyJe/giphy.gif)
+
+The user can view the movie details by clicking on a movie image in the list of movies on the home page.
+
+The movie details page displays the movie title, poster, release date, average rating, and movie summary/overview.
+
+## View Movie Trailer
+
+![MovieTrailer](https://media.giphy.com/media/009K73Iep9Qzz0N8sn/giphy.gif)
+
+The user can navigate to the movies trailer page by clicking the "See Movie Trailer" button. This button is only displayed when a user has selected to view the movies detail.
+
+![Gif 2](https://media.giphy.com/media/657pkDahvCs0yU2t9u/giphy.gif)
+
+Once on the movie trailer page, the user will see an embed YouTube video of a movie trailer. The vidoe has control options for the user to play, mute, enable full screen, etc. In addition, there are two navigation buttons that navigate the user to view movie details and view all movies. 
 
 # Getting Started
 To get a local copy up and running follow these simple steps.
