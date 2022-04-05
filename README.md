@@ -4,6 +4,7 @@ Rancid Tomatillos is a paired project using React to build an application that a
 
 ![Gif 1](https://media.giphy.com/media/aooFim06ULI1TlUyJe/giphy.gif)
 ![Gif 2](https://media.giphy.com/media/M9pAFLfqox02B7ysTu/giphy.gif)
+![Gif 3](https://media.giphy.com/media/HBR9OszEHTLlpJ3ajP/giphy.gif)
 
 
 # Deployment
