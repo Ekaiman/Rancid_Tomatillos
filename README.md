@@ -18,7 +18,6 @@ Click here to see [Rancid Tomatillos](https://gaping-hammer.surge.sh)
 - React
 - React Router
 - Cypress
-- Javascript
 - CSS
 - WAVE (Chrome extension)
 - React Dev Tools (Chrome Dev Tools)
